@@ -20,4 +20,4 @@ ENV LETSENCRYPT_EMAIL="bwhitton@gmail.com"
 ENV LETSENCRYPT_HOST="melissaandbriangetmarried.com"
 
 RUN npm i --production
-CMD PORT=8001 node server.js
+CMD PORT=8001 node fastboot.js
