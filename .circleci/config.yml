@@ -3,6 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.6
+        environment:
+          AWS_ACCESS_KEY: $AWS_ACCESS_KEY
+          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+          AWS_BUCKET: $AWS_BUCKET
+          AWS_REGION: $AWS_REGION
 
     steps:
       - checkout
@@ -25,11 +30,6 @@ jobs:
       - deploy:
           name: ship ember assets
           command: ./node_modules/ember-cli/bin/ember deploy production 
-          environment:
-            AWS_ACCESS_KEY: $AWS_ACCESS_KEY
-            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-            AWS_BUCKET: $AWS_BUCKET
-            AWS_REGION: $AWS_REGION
 
       - deploy:
           name: pull down docker image
