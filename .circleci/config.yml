@@ -15,7 +15,7 @@ jobs:
       - run:
           name: install-deps
           command: npm install
-      - save_cache:
+      - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
