@@ -20,6 +20,8 @@ jobs:
           paths:
             - ./node_modules
       - run: ./node_modules/ember-cli/bin/ember deploy production
+
+      - setup_remote_docker
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker build -t noslouch/wedding-ember .
