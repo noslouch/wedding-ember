@@ -31,4 +31,6 @@ jobs:
           command: ./node_modules/ember-cli/bin/ember deploy production 
       - deploy:
           name: pull down docker image
-          command: ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember" 
+          command: |
+            ssh-keyscan melissaandbriangetmarried.com >> ~/.ssh/known_hosts
+            ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember" 
