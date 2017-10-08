@@ -19,11 +19,16 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: ./node_modules/ember-cli/bin/ember deploy production
 
       - setup_remote_docker
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker build -t noslouch/wedding-ember .
       - run: docker push noslouch/wedding-ember
-      - run: ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember"
+
+      - deploy:
+          name: ship ember assets
+          command: ./node_modules/ember-cli/bin/ember deploy production 
+      - deploy:
+          name: pull down docker image
+          command: ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember" 
