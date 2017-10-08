@@ -35,6 +35,11 @@
     "ember-source": "^2.15.0",
     "loader.js": "^4.2.3"
   },
+  "dependencies": {
+    "ember-fetch": "^3.4.0",
+    "ember-cli-fastboot": "^1.0.5",
+    "fastboot-app-server": "^1.0.2"
+  },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   }
