@@ -1,0 +1,23 @@
+@mixin l-constrained {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@mixin l-flex-row($justify: space-between)  {
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin image-container {
+  position: relative;
+  
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  height: 80vh;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

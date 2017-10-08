@@ -1,0 +1,56 @@
+@import "mixins/layout";
+
+.home-hero-image {
+  @include image-container;
+  background-image: url('/assets/images/home.jpg');
+  margin-bottom: 25px;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+.home-header {
+  position: relative;
+  font-size: 28px;
+  color: white;
+  
+  text-align: center;
+  max-width: 500px;
+  
+  margin-left: 0;
+  transition: font-size 125ms ease, margin-left 125ms ease;
+  
+  @media only screen and (min-width: 600px) {
+    font-size: 48px;
+  }
+  
+  @media only screen and (min-width: 800px) {
+    margin-left: -240px;
+  }
+  
+  @media only screen and (min-width: 1000px) {
+    margin-left: -500px;
+  }
+}
+
+.home-body {
+  @include l-constrained;
+  margin-bottom: 25px;
+  
+  @media only screen and (min-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.home-body__right {
+  flex: 1;
+}
