@@ -1,0 +1,7 @@
+<ul class="nav-list">
+{{#each routes as |link|}}
+  <li>
+    {{link-to link.label link.route classNames="nav-link"}}
+  </li>
+{{/each}}
+</ul>
