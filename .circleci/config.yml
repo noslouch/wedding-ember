@@ -13,7 +13,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: ember deploy production
+      - run: ./node_modules/ember-cli/bin/ember deploy production
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker build -t noslouch/wedding-ember .
