@@ -19,7 +19,7 @@ jobs:
       - setup_remote_docker
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -e FINGERPRINT_PREPEND_URL=$FINGERPRINT_PREPEND_URL -t noslouch/wedding-ember .
+      - run: docker build --build-arg FINGERPRINT_PREPEND_URL=$FINGERPRINT_PREPEND_URL -t noslouch/wedding-ember .
       - run: docker push noslouch/wedding-ember
 
       - deploy:
