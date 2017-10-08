@@ -1,10 +1,19 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker:
+      - image: circleci/node:8.6
 
     steps:
       - checkout
+      - run:
+          name: install-deps
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: ember deploy production
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker build -t noslouch/wedding-ember .
