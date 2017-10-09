@@ -8,11 +8,11 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('schedule');
-  this.route('direction');
   this.route('where-to-stay');
   this.route('people');
   this.route('registry');
   this.route('rsvp');
+  this.route('directions');
 });
 
 export default Router;

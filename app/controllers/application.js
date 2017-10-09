@@ -14,6 +14,9 @@ export default Controller.extend({
     route: 'schedule',
     label: 'Schedule'
   }, {
+    route: 'directions',
+    label: 'Directions'
+  }, {
     route: 'where-to-stay',
     label: 'Where to Stay'
   }, {
