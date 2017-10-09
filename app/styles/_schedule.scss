@@ -4,6 +4,11 @@
 .schedule-hero-image {
   @include image-container;
   background-image: url('/assets/images/schedule.jpg');
+  background-position: center;
+  
+  @media only screen and (min-width: 600px) {
+    background-position: top right;
+  }
   
   &:before {
     background-color: rgba(0, 0, 0, 0.25);
