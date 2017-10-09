@@ -1,3 +1,5 @@
+$breakpoint: 668px;
+
 @import "mixins/vars";
 @import "mixins/layout";
 @import "mixins/lists";
@@ -29,7 +31,7 @@
     z-index: $z-index-nav-links-background;
     transition: opacity 125ms ease;
     
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: $breakpoint) {
       background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.75) 50%, white);
     }
   }
@@ -39,7 +41,7 @@
     box-shadow: 0 0 10px 1px rgba(155, 155, 155, 0.5);
   }
   
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: $breakpoint) {
     padding-top: 25px;
     padding-bottom: 35px;
   }
@@ -53,9 +55,9 @@
   
   > li {
     flex-basis: 40%;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: $breakpoint) {
       flex-basis: auto;
       margin-bottom: 0;
     }
@@ -65,9 +67,30 @@
 .nav-link {
   text-decoration: none;
   color: white;
+  font-size:: 12px;
+  
+  &.active {
+    border-bottom: 1px solid white;
+  }
+  
+  @media only screen and (min-width: $breakpoint) {
+    font-size:: 16px;
+    display: block;
+    padding: 8px 13px;
+    border: 1px solid transparent;
+    
+    &.active {
+      border-color: white;
+    }
+  }
 }
 
 .nav-links.solid-background .nav-link,
 .nav-links.show-gradient .nav-link {
   color: $darkergray;
+}
+
+.nav-links.solid-background .nav-link.active,
+.nav-links.show-gradient .nav-link.active {
+  border-color: $darkergray;
 }
