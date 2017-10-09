@@ -1,0 +1,53 @@
+@import "mixins/layout";
+@import "mixins/type";
+
+.schedule-hero-image {
+  @include image-container;
+  background-image: url('/assets/images/schedule.jpg');
+  
+  &:before {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.schedule-hero-image__headline {
+  position: relative;
+}
+
+.schedule-header {
+  @include hero-headline;
+}
+
+.schedule-body {
+  @include l-constrained;
+  text-align: center;
+  
+  >  h2 {
+    font-size: 28px;
+    margin-bottom: 35px;
+    
+    @media only screen and (min-width: 600px) {
+      font-size: 48px;
+    }
+  }
+}
+
+.schedule-block {
+  margin-bottom: 25px;
+}
+
+.schedule-date {
+  display: block;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+  
+  @media only screen and (min-width: 600px) {
+    font-size: 34px;
+  }
+}
+
+.schedule-item {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
