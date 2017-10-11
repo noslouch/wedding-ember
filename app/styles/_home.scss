@@ -4,12 +4,17 @@
 .home-hero-image {
   @include image-container;
   background-image: url('/assets/images/home.jpg');
+  background-position: 75% 50%;
   
   .count-down {
     color: white;
     font-style: oblique;
+  }
   
-    @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
+    background-position: top right;
+    
+    .count-down  {
       font-size: 20px;
     }
   }

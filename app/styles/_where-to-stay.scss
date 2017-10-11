@@ -27,23 +27,7 @@
   @include l-constrained;
   text-align: center;
   
-  > h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    
-    @media only screen and (min-width: 600px) {
-      font-size: 34px;
-    }
-  }
-  
-  > h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    
-    @media only screen and (min-width: 600px) {
-      font-size: 24px;
-    }
-  }
+  @include body-headings;
   
   > iframe {
     margin-bottom: 35px;
