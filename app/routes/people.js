@@ -19,10 +19,10 @@ export default Ember.Route.extend({
         name: 'Caitlin Mae Burke',
         image: ''
       }, {
-        name: '',
+        name: 'Allison Caldwell',
         image: ''
       }, {
-        name: '',
+        name: 'Jenny Hartman',
         image: ''
       }],
       men: [{
