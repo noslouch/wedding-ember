@@ -1,0 +1,11 @@
+@mixin btn {
+  display: inline-block;
+  appearance: none;
+  font-family: 'Open Sans', sans-serif;
+  color: $darkergray;
+  font-size: 16px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}

@@ -1,0 +1,41 @@
+<p>
+  <em>Already registered? <button class="rsvp-switchbutton" {{action (action switch)}}>Check your response.</button></em>
+</p>
+
+<form>
+  <label>
+    Your Name
+    {{input value=name placeholder="e.g. Jane Doe"}}
+  </label>
+  <label>
+    Email
+    {{input value=email type='email' placeholder="e.g. me@example.com"}}
+  </label>
+  <label>
+    Plus One? What's their name?
+    {{input value=plusOneName placeholder="e.g. Jane Doe"}}
+  </label>
+  
+  {{if attending 'attending!' 'nope'}}
+  <fieldset>
+    <legend>Attending?</legend>
+    <label>
+      <input type="radio" name="attending" onChange={{action (mut attending) true}} checked />
+      Can't wait!
+    </label>
+    <label>
+      <input type="radio" name="attending" onChange={{action (mut attending) false}}/>
+      Regrets :(
+    </label>
+  </fieldset>
+  
+  <label>
+    Unless you play this song, I won't dance
+    {{input value=songRequest placeholder="e.g. YMCA by The Village People"}}
+  </label>
+  
+  <label>
+    Anything else?
+    {{textarea value=comment}}
+  </label>
+</form>

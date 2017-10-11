@@ -1,0 +1,14 @@
+@import "mixins/vars";
+@import "mixins/forms";
+
+.rsvp-switchbutton {
+  @include btn;
+  font-style: inherit;
+  border-bottom: 1px solid currentColor;
+  line-height: 1;
+  transition: border-bottom-color 125ms ease;
+  
+  &:hover {
+    border-bottom-color: #ccc;
+  }
+}

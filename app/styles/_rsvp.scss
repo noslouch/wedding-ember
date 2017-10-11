@@ -1,0 +1,9 @@
+@import "mixins/type";
+
+.rsvp-header {
+  @include hero-headline-bare;
+}
+
+.rsvp-body {
+  @include no-hero-body;
+}
