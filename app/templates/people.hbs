@@ -1,1 +1,33 @@
-{{outlet}}
+<main class="people-body">
+  <h1 class="people-header">Look at These Punims</h1>
+  
+  <section class="people-block">
+    <h2>Wedding Party</h2>
+    
+    <h3>Bridesmaids</h3>
+    <ul class="people-bridesmaids">
+    {{#each model.maids as |maid|}}
+      <li class="people-person">
+        <div style="width: 100px; height: 100px; background-color: #ccc; margin: 0 auto 15px;"></div>
+        <span>{{maid.name}}</span>
+      </li>
+    {{/each}}
+    </ul>
+    
+    <h3>Groomsmen</h3>
+    <ul class="people-groomsmen">
+    {{#each model.men as |man|}}
+      <li class="people-person">
+        <div style="width: 100px; height: 100px; background-color: #ccc; margin: 0 auto 15px;"></div>
+        <span>{{man.name}}</span>
+      </li>
+    {{/each}}
+    </ul>
+    
+    <h2>Officiant</h2>
+    <div class="people-officiant">
+        <div style="width: 300px; height: 300px; background-color: #ccc; margin: 0 auto 15px;"></div>
+        <span>Rabbi Mark Greenspan</span>
+    </div>
+  </section>
+</main>

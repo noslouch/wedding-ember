@@ -1,0 +1,32 @@
+@import "mixins/type";
+
+.registry-header {
+  @include hero-headline-bare;
+}
+
+.registry-body {
+  @include no-hero-body;
+}
+
+.regsitry-block {
+  margin-bottom: 35px;
+}
+
+.registries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  
+  > li {
+    flex-basis: 100%;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    
+    @media only screen and (min-width: 600px) {
+      flex-basis: 33%;
+    }
+  }
+}
