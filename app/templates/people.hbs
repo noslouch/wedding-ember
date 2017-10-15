@@ -18,7 +18,7 @@
     <ul class="people-groomsmen">
     {{#each model.men as |man|}}
       <li class="people-person">
-        <div style="width: 100px; height: 100px; background-color: #ccc; margin: 0 auto 15px;"></div>
+        <img src={{man.image}} width="200" />
         <span>{{man.name}}</span>
       </li>
     {{/each}}
