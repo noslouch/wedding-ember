@@ -1,4 +1,5 @@
 <main class="registry-body">
+  {{#if showRegistry}}
   <h1 class="registry-header">If You Insist</h1>
   
   <section class="registry-block">
@@ -17,4 +18,7 @@
       </li>
     </ul>
   </section>
+  {{else}}
+  <h1 class="registry-header">Coming Soon</h1>
+  {{/if}}
 </main>

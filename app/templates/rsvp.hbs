@@ -1,4 +1,5 @@
 <main class="rsvp-body">
+  {{#if showRSVP}}
   <h1 class="rsvp-header">Come as You Are<br />(But Nicer)</h1>
   
   <section class="rsvp-block">
@@ -8,4 +9,7 @@
       {{rsvp-form switch=(action (mut checkingStatus) true)}}
     {{/if}}
   </section>
+  {{else}}
+  <h1 class="rsvp-header">RSVP Not Open Yet</h1>
+  {{/if}}
 </main>
