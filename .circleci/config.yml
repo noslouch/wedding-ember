@@ -26,10 +26,10 @@ jobs:
       - setup_remote_docker
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build\
-              --build-arg FINGERPRINT_PREPEND_URL=$FINGERPRINT_PREPEND_URL\
-              --build-arg RSVP=$RSVP\
-              --build-arg REGISTRY=$REGISTRY\
+      - run: docker build \
+              --build-arg FINGERPRINT_PREPEND_URL=$FINGERPRINT_PREPEND_URL \
+              --build-arg RSVP=$RSVP \
+              --build-arg REGISTRY=$REGISTRY \
               -t noslouch/wedding-ember .
       - run: docker push noslouch/wedding-ember
 
