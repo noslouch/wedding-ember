@@ -24,14 +24,21 @@ jobs:
             - node_modules
 
       - setup_remote_docker
-      - run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build \
-              --build-arg FINGERPRINT_PREPEND_URL=$FINGERPRINT_PREPEND_URL \
-              --build-arg RSVP=$RSVP \
-              --build-arg REGISTRY=$REGISTRY \
-              -t noslouch/wedding-ember .
-      - run: docker push noslouch/wedding-ember
+      - run: 
+          name: login to docker hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: 
+          name: build docker image
+          command: |
+            docker build\
+                --build-arg FINGERPRINT_PREPEND_URL=$FINGERPRINT_PREPEND_URL\
+                --build-arg RSVP=$RSVP\
+                --build-arg REGISTRY=$REGISTRY\
+                -t noslouch/wedding-ember .
+      - run: 
+          name: ship it to docker hub
+          command: docker push noslouch/wedding-ember
 
       - deploy:
           name: ship ember assets
