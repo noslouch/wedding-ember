@@ -21,7 +21,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    RSVP: process.env.RSVP,
+    REGISTRY: process.env.REGISTRY
   };
 
   if (environment === 'development') {
