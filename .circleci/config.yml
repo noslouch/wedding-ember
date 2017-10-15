@@ -21,7 +21,7 @@ jobs:
       - save_cache:
           key: npm-{{ checksum "package.json" }}
           paths:
-            - ./node_modules
+            - node_modules
 
       - setup_remote_docker
       - run: |
