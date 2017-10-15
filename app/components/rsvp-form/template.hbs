@@ -2,40 +2,51 @@
   <em>Already registered? <button class="rsvp-switchbutton" {{action (action switch)}}>Check your response.</button></em>
 </p>
 
-<form>
-  <label>
-    Your Name
-    {{input value=name placeholder="e.g. Jane Doe"}}
-  </label>
-  <label>
-    Email
-    {{input value=email type='email' placeholder="e.g. me@example.com"}}
-  </label>
-  <label>
-    Plus One? What's their name?
-    {{input value=plusOneName placeholder="e.g. Jane Doe"}}
-  </label>
+<form class="rsvp-form" {{action 'submit' on='submit'}}>
+  <label class="rsvp-label" for="name">Your Name</label>
+  {{input id="name" class=(concat "rsvp-input" (if errors.name " error")) value=name placeholder="e.g. Jane Doe" input=(action clearError) name="name"}}
+  {{#if errors.name}}
+    <ul class="rsvp-errors">
+    {{#each errors.name as |error|}}
+      <li>
+        {{error}}
+      </li>
+    {{/each}}
+    </ul>
+  {{/if}}
   
-  {{if attending 'attending!' 'nope'}}
-  <fieldset>
+  <label class="rsvp-label" for="email">Email</label>
+  {{input id="email" class=(concat "rsvp-input" (if errors.email " error")) value=email type='email' placeholder="e.g. me@example.com" input=(action clearError) name="email"}}
+  {{#if errors.email}}
+    <ul class="rsvp-errors">
+    {{#each errors.email as |error|}}
+      <li>
+        {{error}}
+      </li>
+    {{/each}}
+    </ul>
+  {{/if}}
+  
+  <label class="rsvp-label" for="plus-one">Plus One? What's their name?</label>
+  {{input id="plus-one" class="rsvp-input" value=plusOneName placeholder="e.g. Jane Doe"}}
+  
+  <fieldset class="rsvp-fieldset">
     <legend>Attending?</legend>
-    <label>
-      <input type="radio" name="attending" onChange={{action (mut attending) true}} checked />
+    <label class="rsvp-label--radio">
+      <input class="rsvp-radio" type="radio" name="attending" onChange={{action (mut attending) true}} checked />
       Can't wait!
     </label>
-    <label>
-      <input type="radio" name="attending" onChange={{action (mut attending) false}}/>
+    <label class="rsvp-label--radio">
+      <input class="rsvp-radio" type="radio" name="attending" onChange={{action (mut attending) false}}/>
       Regrets :(
     </label>
   </fieldset>
   
-  <label>
-    Unless you play this song, I won't dance
-    {{input value=songRequest placeholder="e.g. YMCA by The Village People"}}
-  </label>
+  <label class="rsvp-label" for="song-request">Unless you play this song, I won't dance</label>
+  {{input id="song-request" class="rsvp-input" value=songRequest placeholder="e.g. YMCA by The Village People"}}
   
-  <label>
-    Anything else?
-    {{textarea value=comment}}
-  </label>
+  <label class="rsvp-label" for="comment">Anything else?</label>
+  {{textarea id="comment" class="rsvp-textarea" value=comment cols=50 rows=8}}
+  
+  {{input class="rsvp-submit" type='submit' value='SUBMIT'}}
 </form>

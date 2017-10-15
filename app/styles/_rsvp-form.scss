@@ -12,3 +12,88 @@
     border-bottom-color: #ccc;
   }
 }
+
+.rsvp-form {
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp-label,
+.rsvp-label--radio {
+  display: block;
+}
+
+.rsvp-label {
+  margin-bottom: 10px;
+}
+
+.rsvp-label--radio {
+  margin-bottom: 15px;
+}
+
+.rsvp-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  
+  > legend {
+    margin-bottom: 10px;
+  }
+}
+
+.rsvp-input,
+.rsvp-textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 35px;
+  border: 1px solid $lightergray;
+  padding: 7px;
+  line-height: 1;
+  
+  transition: border-color 125ms ease;
+  
+  &:focus {
+    outline: none;
+    border-color: $darkergray;
+  }
+  
+  &.error {
+    margin-bottom: 0;
+    border-color: $red;
+  }
+}
+
+.rsvp-input {
+}
+
+.rsvp-textarea {
+}
+
+.rsvp-submit {
+  @include btn;
+  border: 1px solid $darkergray;
+  padding: 15px 30px;
+  background-color: rgba($lightergray, 0);
+  transition: background-color 125ms ease;
+  
+  &:hover {
+    background-color: rgba($lightergray, 1);
+  }
+}
+
+.rsvp-errors {
+  margin-bottom: 25px;
+  color: $red;
+  
+  > li {
+    margin-bottom: 5px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
