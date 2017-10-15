@@ -21,8 +21,15 @@ html {
   color: $darkergray;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.5px;
 }
 
 img {
   max-width: 100%;
+}
+
+input,
+textarea {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
