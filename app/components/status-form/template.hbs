@@ -1,3 +1,42 @@
+{{#if hasErrors}}
+<div class="status-error-message">
+  <p>
+    Plese correct the errors below.
+  </p>
+</div>
+{{/if}}
+
 <p>
   <em>Trying to RSVP? <button class="status-switchbutton" {{action (action switch)}}>Fill out the form.</button></em>
 </p>
+
+<form class="status-form" {{action 'submit' on='submit'}}>
+  <label class="status-label" for="email">Email you used to RSVP</label>
+  {{input id="email" class=(concat "status-input" (if errors.email " error")) value=email type='email' placeholder="e.g. me@example.com" input=(action clearError) name="email"}}
+  {{#if errors.email}}
+    <ul class="status-errors">
+    {{#each errors.email as |error|}}
+      <li>
+        {{error}}
+      </li>
+    {{/each}}
+    </ul>
+  {{/if}}
+  
+  {{input class=(concat "status-submit" (if errors.submit " error")) type='submit' value='SUBMIT'}}
+  {{if isFetching 'Loading...'}}
+</form>
+
+{{#if responseMessage}}
+<p class="staus-response">
+  {{responseMesssage}}
+</p>
+{{/if}}
+
+{{#if errors.submit}}
+<div class="status-errors--submit">
+  <p>
+    Looks like there was an issue retrieivng your RSVP status.<br />Please try again later or <a href={{emergencyStatusCheck}} class="status-emergency-button" target="_blank">CLICK HERE</a> to ask about your status manually.
+  </p>
+</div>
+{{/if}}

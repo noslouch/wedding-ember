@@ -1,3 +1,11 @@
+{{#if hasErrors}}
+<div class="rsvp-error-message">
+  <p>
+    Plese correct the errors below.
+  </p>
+</div>
+{{/if}}
+
 <p>
   <em>Already registered? <button class="rsvp-switchbutton" {{action (action switch)}}>Check your response.</button></em>
 </p>
@@ -48,5 +56,24 @@
   <label class="rsvp-label" for="comment">Anything else?</label>
   {{textarea id="comment" class="rsvp-textarea" value=comment cols=50 rows=8}}
   
-  {{input class="rsvp-submit" type='submit' value='SUBMIT'}}
+  {{input class=(concat "rsvp-submit" (if errors.submit " error")) type='submit' value='SUBMIT'}}
+  {{if isFetching 'Loading...'}}
 </form>
+
+{{#if errors.submit}}
+<div class="rsvp-errors--submit">
+  <p>
+    Looks like there was an issue submitting your RSVP.<br />Please try again later, or <a href={{emergencySubmit}} target="_blank" class="rsvp-emergency-button">CLICK HERE</a> to RSVP manually.
+  </p>
+</div>
+{{/if}}
+
+{{#if success}}
+<p>
+{{#if attending}}
+  Yes! Thanks for confirming and we can't wait to see you in November.
+{{else}}
+  Thanks for letting us know. Sorry you can't make it. We'll miss you!
+{{/if}}
+</p>
+{{/if}}

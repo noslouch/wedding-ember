@@ -1,18 +1,22 @@
-import Component from 'ember-component';
-import fetch from 'fetch';
+import Component from '../form-base/component';
+import computed from 'ember-computed';
 import config from '../../config/environment';
 
-const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const EMAIL_REGEX = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export default Component.extend({
+  fields: [
+    'name',
+    'email',
+    'plusOneName',
+    'attending',
+    'songRequest',
+    'comment'
+  ],
   attending: true,
+  submitEndpoint: config.rsvpEndpoint,
   
-  init() {
-    this._super(...arguments);
-    this.set('errors', {});
-  },
-  actions: {
-    submit() {
+  emergencySubmit: computed('name', 'email', 'plusOneName', 'attending', 'songRequest', 'comment', function() {
       let {
         name,
         email,
@@ -21,6 +25,22 @@ export default Component.extend({
         songRequest,
         comment
       } = this.getProperties('name', 'email', 'plusOneName', 'attending', 'songRequest', 'comment');
+    let address = 'esnerwhitton@gmail.com';
+    let subject = `Manual RSVP from ${name}`;
+    let body = `Name: ${name}
+Email: ${email || 'No Email.'}${plusOneName ? `\nPlus One: ${plusOneName}` : ''}
+Attending? ${attending ? 'Yes' : 'No'}
+${songRequest ? `Won't you please play this song? ${songRequest}` : 'Don\'t forget to include a song request! ---> [SONG NAME HERE]'}
+Anything else? ${comment || ' '}`;
+
+    return `mailto:${address}?subject=${subject}&body=${encodeURIComponent(body)}`;
+  }),
+  
+  checkErrors() {
+      let {
+        name,
+        email,
+      } = this.getProperties('name', 'email');
       let errors = [];
       if (!name) {
         errors.push({key: 'name', message: 'Forgot your name.'});
@@ -31,43 +51,6 @@ export default Component.extend({
       if (!EMAIL_REGEX.test(email)) {
         errors.push({key: 'email', message: 'This doesn\'t look like a valid email.'});
       }
-      if (errors.length) {
-        return errors.forEach(setErrors.bind(this));
-      } else {
-        this.set('errors', {});
-      }
-
-      this.set('isFetching', true);
-      fetch(config.rsvpEndpoint, {method: 'POST', body: JSON.stringify({
-        name,
-        email,
-        plusOneName,
-        attending,
-        songRequest,
-        comment
-      })})
-        .then(r => r.json())
-        .then(json => {
-          this.set('isFetching', false);
-          if (json.errors) {
-            json.errors.forEach(setErrors.bind(this));
-          } else {
-            this.set('errors', {});
-            this.set('success', true);
-          }
-        })
-    },
-  },
-  clearError(e) {
-    let field = e.target.name;
-    this.set(`errors.${field}`, []);
+      return errors.length ? errors : false;
   }
 });
-
-function setErrors(error) {
-  if (this.get(`errors.${error.key}`)) {
-    this.get(`errors.${error.key}`).pushObject(error.message);
-  } else {
-    this.set(`errors.${error.key}`, [error.message]);
-  }
-}
