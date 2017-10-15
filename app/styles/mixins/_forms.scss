@@ -9,3 +9,78 @@
   padding: 0;
   cursor: pointer;
 }
+
+@mixin link-like-button {
+  @include btn;
+  font-style: inherit;
+  border-bottom: 1px solid currentColor;
+  line-height: 1;
+  transition: border-bottom-color 125ms ease;
+  
+  &:hover {
+    border-bottom-color: #ccc;
+  }
+}
+
+@mixin form-base {
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 35px;
+}
+
+@mixin fieldset-base {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  
+  > legend {
+    margin-bottom: 10px;
+  }
+  
+}
+
+@mixin input-base {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 35px;
+  border: 1px solid $lightergray;
+  padding: 7px;
+  line-height: 1;
+  
+  transition: border-color 125ms ease;
+  
+  &:focus {
+    outline: none;
+    border-color: $darkergray;
+  }
+}
+
+@mixin input-error-states {
+  &.error {
+    margin-bottom: 0;
+    border-color: $red;
+  }
+}  
+
+@mixin block-btn {
+  @include btn;
+  border: 1px solid $darkergray;
+  padding: 15px 30px;
+  background-color: rgba($lightergray, 0);
+  transition: background-color 125ms ease;
+  
+  &:hover {
+    background-color: rgba($lightergray, 1);
+  }
+  
+}
+
+@mixin error-display {
+  line-height: 1.5;
+  font-size: 18px;
+  border: 1px solid $red;
+  padding: 18px;
+}

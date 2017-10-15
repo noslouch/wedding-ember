@@ -1,0 +1,59 @@
+@import "mixins/vars";
+@import "mixins/forms";
+
+.status-switchbutton {
+  @include link-like-button;
+}
+
+.status-form {
+  @include form-base;
+}
+
+.status-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.status-input {
+  @include input-base;
+  @include input-error-states;
+}
+
+.status-submit {
+  @include block-btn;
+}
+
+.status-errors {
+  margin-bottom: 25px;
+  color: $red;
+  
+  > li {
+    margin-bottom: 5px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.status-errors--submit {
+  @include l-medium;
+}
+
+.status-error-message {
+  @include l-narrow;
+}
+  
+.status-error-message,
+.status-errors--submit {
+  > p {
+    @include error-display;
+  }
+}
+
+.status-emergency-button {
+  @include block-btn;
+  text-decoration: none;
+  padding: 8px;
+  margin: 0 3px;
+}

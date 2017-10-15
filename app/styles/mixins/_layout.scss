@@ -4,6 +4,18 @@
   padding: 0 15px;
 }
 
+@mixin l-medium {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@mixin l-narrow {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 @mixin l-flex-row($justify: space-between)  {
   display: flex;
   justify-content: $justify;

@@ -2,22 +2,11 @@
 @import "mixins/forms";
 
 .rsvp-switchbutton {
-  @include btn;
-  font-style: inherit;
-  border-bottom: 1px solid currentColor;
-  line-height: 1;
-  transition: border-bottom-color 125ms ease;
-  
-  &:hover {
-    border-bottom-color: #ccc;
-  }
+  @include link-like-button;
 }
 
 .rsvp-form {
-  text-align: left;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  @include form-base;
 }
 
 .rsvp-label,
@@ -34,37 +23,13 @@
 }
 
 .rsvp-fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 20px;
-  
-  > legend {
-    margin-bottom: 10px;
-  }
+  @include fieldset-base;
 }
 
 .rsvp-input,
 .rsvp-textarea {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 35px;
-  border: 1px solid $lightergray;
-  padding: 7px;
-  line-height: 1;
-  
-  transition: border-color 125ms ease;
-  
-  &:focus {
-    outline: none;
-    border-color: $darkergray;
-  }
-  
-  &.error {
-    margin-bottom: 0;
-    border-color: $red;
-  }
+  @include input-base;
+  @include input-error-states;
 }
 
 .rsvp-input {
@@ -74,17 +39,10 @@
 }
 
 .rsvp-submit {
-  @include btn;
-  border: 1px solid $darkergray;
-  padding: 15px 30px;
-  background-color: rgba($lightergray, 0);
-  transition: background-color 125ms ease;
-  
-  &:hover {
-    background-color: rgba($lightergray, 1);
-  }
+  @include block-btn;
 }
 
+.status-errors,
 .rsvp-errors {
   margin-bottom: 25px;
   color: $red;
@@ -96,4 +54,26 @@
       margin-bottom: 0;
     }
   }
+}
+
+.rsvp-errors--submit {
+  @include l-medium;
+}
+
+.rsvp-error-message {
+  @include l-narrow;
+}
+  
+.rsvp-error-message,
+.rsvp-errors--submit {
+  > p {
+    @include error-display;
+  }
+}
+
+.rsvp-emergency-button {
+  @include block-btn;
+  text-decoration: none;
+  padding: 8px;
+  margin: 0 3px;
 }
