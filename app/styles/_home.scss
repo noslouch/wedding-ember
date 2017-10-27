@@ -4,7 +4,7 @@
 .home-hero-image {
   @include image-container;
   background-image: url('/assets/images/home.jpg');
-  background-position: 75% 50%;
+  background-position: center;
   
   .count-down {
     color: white;
@@ -21,7 +21,7 @@
 }
 
 .home-hero-image__headline {
-  @include hero-image-headline-wrapper;
+  position: relative;
   text-align: center;
 }
 

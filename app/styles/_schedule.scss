@@ -4,7 +4,7 @@
 .schedule-hero-image {
   @include image-container;
   background-image: url('/assets/images/schedule.jpg');
-  background-position: center;
+  background-position: 75% 50%;
   
   @media only screen and (min-width: 600px) {
     background-position: top right;
@@ -16,7 +16,7 @@
 }
 
 .schedule-hero-image__headline {
-  position: relative;
+  @include hero-image-headline-wrapper;
 }
 
 .schedule-header {
