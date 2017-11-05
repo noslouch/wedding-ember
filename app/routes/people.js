@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         name: 'Bevin Cohen',
         key: '',
       }, {
-        name: 'Katie Sachsenmeier Wang',
+        name: 'Katie Sachsenmaier',
         key: '',
       }],
       men: [{
