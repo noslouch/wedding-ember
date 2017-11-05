@@ -27,28 +27,28 @@ export default Ember.Route.extend({
       }],
       men: [{
         name: 'Brad Farberman',
-        image: '/assets/images/people/brad.jpg'
+        key: 'brad'
       }, {
         name: 'Joe Ammon',
-        image: '/assets/images/people/joe.jpg'
+        key: 'joe'
       }, {
         name: 'Dimitri Apostol',
-        image: '/assets/images/people/dimitri.jpg',
+        key: 'dimitri'
       }, {
         name: 'Michael Capristo',
-        image: '/assets/images/people/mike.jpg'
+        key: 'mike'
       }, {
         name: 'Matt Chaban',
-        image: '/assets/images/people/matt.jpg'
+        key: 'matt'
       }, {
         name: 'Gabriel Herrera',
-        image: '/assets/images/people/gabe.jpg',
+        key: 'gabe'
       }, {
         name: 'Konstantin Karmazin',
-        image: '/assets/images/people/kon.jpg',
+        key: 'kon'
       }, {
         name: 'Ian Lamb',
-        image: '/assets/images/people/ian.jpg',
+        key: 'ian'
       }]
     }
   }
