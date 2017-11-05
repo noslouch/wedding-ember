@@ -5,22 +5,22 @@ export default Ember.Route.extend({
     return {
       maids: [{
         name: 'Laura Esner',
-        image: '',
-      }, {
-        name: 'Katie Sachsenmeier Wang',
-        image: '',
-      }, {
-        name: 'Bevin Cohen',
-        image: '',
+        key: '',
       }, {
         name: 'Maya Bradford',
-        image: '',
+        key: '',
       }, {
         name: 'Caitlin Mae Burke',
         key: 'cait',
       }, {
         name: 'Allison Caldwell',
-        image: ''
+        key: ''
+      }, {
+        name: 'Bevin Cohen',
+        key: '',
+      }, {
+        name: 'Katie Sachsenmeier Wang',
+        key: '',
       }],
       men: [{
         name: 'Brad Farberman',
