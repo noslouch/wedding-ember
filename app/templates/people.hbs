@@ -18,7 +18,8 @@
     <ul class="people-groomsmen">
     {{#each model.men as |man|}}
       <li class="people-person">
-        <img src={{man.image}} width="200" />
+        <img class="hover" src="/assets/images/people/{{man.key}}2.jpg" width="200" />
+        <img src="/assets/images/people/{{man.key}}.jpg" width="200" />
         <span>{{man.name}}</span>
       </li>
     {{/each}}
