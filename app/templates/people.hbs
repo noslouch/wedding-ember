@@ -8,7 +8,12 @@
     <ul class="people-bridesmaids">
     {{#each model.maids as |maid|}}
       <li class="people-person">
+        {{#if maid.key}}
+        <img class="hover" src="/assets/images/people/{{maid.key}}2.jpg" width="200" />
+        <img src="/assets/images/people/{{maid.key}}.jpg" width="200" />
+      {{else}}
         <div style="width: 100px; height: 100px; background-color: #ccc; margin: 0 auto 15px;"></div>
+      {{/if}}
         <span>{{maid.name}}</span>
       </li>
     {{/each}}
