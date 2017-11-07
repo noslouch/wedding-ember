@@ -9,8 +9,8 @@
     {{#each model.maids as |maid|}}
       <li class="people-person">
         {{#if maid.key}}
-        <img class="hover" src="/assets/images/people/{{maid.key}}2.jpg" width="200" />
-        <img src="/assets/images/people/{{maid.key}}.jpg" width="200" />
+        <img class="hover" src={{maid.image2}} width="200" />
+        <img src={{maid.image1}} width="200" />
       {{else}}
         <div style="width: 100px; height: 100px; background-color: #ccc; margin: 0 auto 15px;"></div>
       {{/if}}
@@ -23,8 +23,8 @@
     <ul class="people-groomsmen">
     {{#each model.men as |man|}}
       <li class="people-person">
-        <img class="hover" src="/assets/images/people/{{man.key}}2.jpg" width="200" />
-        <img src="/assets/images/people/{{man.key}}.jpg" width="200" />
+        <img class="hover" src={{man.image2}} width="200" />
+        <img src={{man.image1}} width="200" />
         <span>{{man.name}}</span>
       </li>
     {{/each}}
