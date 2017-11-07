@@ -5,47 +5,61 @@ export default Ember.Route.extend({
     return {
       maids: [{
         name: 'Laura Esner',
-        key: '',
+        image1: '',
+        image2: ''
       }, {
         name: 'Maya Bradford',
-        key: '',
+        image1: '',
+        image2: ''
       }, {
         name: 'Caitlin Mae Burke',
-        key: 'cait',
+        image1: '/assets/images/people/cait.jpg',
+        image2: '/assets/images/people/cait2.jpg',
       }, {
         name: 'Allison Caldwell',
-        key: ''
+        image1: '',
+        image2: ''
       }, {
         name: 'Bevin Cohen',
-        key: '',
+        image1: '',
+        image2: ''
       }, {
         name: 'Katie Sachsenmaier',
-        key: '',
+        image1: '',
+        image2: ''
       }],
       men: [{
         name: 'Brad Farberman',
-        key: 'brad'
+        image1: '/assets/images/people/brad.jpg',
+        image2: '/assets/images/people/brad2.jpg',
       }, {
         name: 'Joe Ammon',
-        key: 'joe'
+        image1: '/assets/images/people/joe.jpg',
+        image2: '/assets/images/people/joe2.jpg',
       }, {
         name: 'Dimitri Apostol',
-        key: 'dimitri'
+        image1: '/assets/images/people/dimitri.jpg',
+        image2: '/assets/images/people/dimitri2.jpg',
       }, {
         name: 'Michael Capristo',
-        key: 'mike'
+        image1: '/assets/images/people/mike.jpg',
+        image2: '/assets/images/people/mike2.jpg',
       }, {
         name: 'Matt Chaban',
-        key: 'matt'
+        image1: '/assets/images/people/matt.jpg',
+        image2: '/assets/images/people/matt2.jpg',
       }, {
         name: 'Gabriel Herrera',
-        key: 'gabe'
+        image1: '/assets/images/people/gabe.jpg',
+        image2: '/assets/images/people/gabe2.jpg',
       }, {
         name: 'Konstantin Karmazin',
-        key: 'kon'
+        image1: '/assets/images/people/kon.jpg',
+        image2: '/assets/images/people/kon2.jpg',
       }, {
         name: 'Ian Lamb',
-        key: 'ian'
+        image1: '/assets/images/people/ian.jpg',
+        image2: '/assets/images/people/ian2.jpg',
       }]
     }
   }
