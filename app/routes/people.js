@@ -5,8 +5,8 @@ export default Ember.Route.extend({
     return {
       maids: [{
         name: 'Laura Esner',
-        image1: '',
-        image2: ''
+        image1: '/assets/images/people/laura.jpg',
+        image2: '/assets/images/people/laura2.jpg'
       }, {
         name: 'Maya Bradford',
         image1: '',
