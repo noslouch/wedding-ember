@@ -21,6 +21,12 @@
   justify-content: $justify;
 }
 
+@mixin l-flex-column($justify: space-between) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+}
+
 @mixin image-container {
   position: relative;
   

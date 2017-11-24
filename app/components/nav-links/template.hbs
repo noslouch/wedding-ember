@@ -1,3 +1,7 @@
+<div class="nav-links__mobile">
+  <button {{action (action (mut isOpen) (not isOpen))}} class="nav-links__menu-button">{{if isOpen 'Close' 'Menu'}}</button>
+</div>
+
 <ul class="nav-list">
 {{#each routes as |link|}}
   <li>

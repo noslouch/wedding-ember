@@ -4,7 +4,7 @@ import computed from 'ember-computed';
 export default Ember.Component.extend({
   tagName: 'nav',
   classNames: ['nav-links'],
-  classNameBindings: ['gradientState'],
+  classNameBindings: ['gradientState', 'isOpen'],
   
   gradientState: computed('heroScroll', function() {
     let scrollState = this.get('heroScroll');
