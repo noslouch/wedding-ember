@@ -7,28 +7,30 @@ import $ from 'jquery';
 export default Controller.extend({
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
-  routes: [{
-    route: 'index',
-    label: 'Home'
-  }, {
-    route: 'schedule',
-    label: 'Schedule'
-  }, {
-    route: 'directions',
-    label: 'Directions'
-  }, {
-    route: 'where-to-stay',
-    label: 'Where to Stay'
-  }, {
-    route: 'people',
-    label: 'People'
-  }, {
-    route: 'registry',
-    label: 'Registry'
-  }, {
-    route: 'rsvp',
-    label: 'RSVP'
-  }],
+  routes: [
+    {
+      route: 'index',
+      label: 'Home'
+    }, {
+      route: 'schedule',
+      label: 'Schedule'
+    }, {
+      route: 'directions',
+      label: 'Directions'
+    }, {
+      route: 'where-to-stay',
+      label: 'Where to Stay'
+    }, {
+      route: 'people',
+      label: 'People'
+    }, {
+      route: 'registry',
+      label: 'Registry'
+    }, {
+      route: 'rsvp',
+      label: 'RSVP'
+    }
+  ],
   
   handler() {
     let heroImage = $('[class*=hero-image]')[0];
