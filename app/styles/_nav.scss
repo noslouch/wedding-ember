@@ -53,15 +53,11 @@
   .rsvp &,
   .people &,
   .registry & {
-    padding-top: 10px;
-    padding-bottom: 10px;
   }
   
   @media only screen and (min-width: $nav-breakpoint) {
     display: block;
     background: none;
-    padding-top: 25px;
-    padding-bottom: 35px;
     
     &.is-open {
       bottom: auto;
@@ -87,7 +83,7 @@
   color: white;
   border: 1px solid currentColor;
   padding: 12px 15px;
-  margin: 0 auto 25px;
+  margin: 0 auto;
   border-radius: 0;
   
   .rsvp &,
@@ -100,6 +96,7 @@
   
   .is-open & {
     color: white;
+    margin-bottom: 25px;
   }
 }
 
