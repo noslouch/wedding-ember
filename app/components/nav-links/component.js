@@ -1,7 +1,10 @@
 import Ember from 'ember';
 import computed from 'ember-computed';
+import service from 'ember-service/inject';
 
 export default Ember.Component.extend({
+  fastboot: service(),
+  
   tagName: 'nav',
   classNames: ['nav-links'],
   classNameBindings: ['gradientState', 'isOpen'],
@@ -16,5 +19,16 @@ export default Ember.Component.extend({
       case 'outOfView':
         return 'solid-background';
     }
-  })
+  }),
+  didUpdateAttrs() {
+    if (this.get('fastboot.isFastBoot')) {
+      return;
+    }
+    let isOpening = this.get('isOpen');
+    if (isOpening) {
+      document.body.classList.add('stop-scroll');
+    } else {
+      document.body.classList.remove('stop-scroll');
+    }
+  }
 });
