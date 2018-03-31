@@ -31,7 +31,7 @@ export default Controller.extend({
       label: 'RSVP'
     }
   ],
-  
+
   handler() {
     let heroImage = $('[class*=hero-image]')[0];
     if (!heroImage) {
@@ -46,7 +46,7 @@ export default Controller.extend({
       this.set('heroScroll', 'atTop');
     }
   },
-  
+
   init() {
     this._super(...arguments);
     if (this.get('isFastBoot')) {

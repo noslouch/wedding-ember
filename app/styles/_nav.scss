@@ -5,26 +5,26 @@
 
 .nav-links {
   @include l-flex-column($justify: center);
-  
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  
+
   text-align: center;
   padding: 15px 0;
-  
+
   z-index: $z-index-nav-links;
-  
+
   &.is-open {
     bottom: 0;
     background: rgba(0, 0, 0, 0.75);
   }
-    
+
   &.show-gradient:before {
     opacity: 1;
   }
-  
+
   &:before {
     content: '';
     background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0.75) 50%, white);
@@ -37,11 +37,11 @@
     z-index: $z-index-nav-links-background;
     transition: opacity 125ms ease;
   }
-  
+
   &.is-open:before {
     display: none;
   }
-  
+
   .rsvp &:not(.is-open),
   .people &:not(.is-open),
   .registry &:not(.is-open),
@@ -49,21 +49,21 @@
     background-color: white;
     box-shadow: 0 0 10px 1px rgba(155, 155, 155, 0.5);
   }
-  
+
   .rsvp &,
   .people &,
   .registry & {
   }
-  
+
   @media only screen and (min-width: $nav-breakpoint) {
     display: block;
     background: none;
-    
+
     &.is-open {
       bottom: auto;
       background: none;
     }
-    
+
     &:before {
       background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.75) 50%, white);
     }
@@ -71,7 +71,7 @@
 }
 
 .nav-links__mobile {
-  
+
   @media only screen and (min-width: $nav-breakpoint) {
     display: none;
   }
@@ -85,7 +85,7 @@
   padding: 12px 15px;
   margin: 0 auto;
   border-radius: 0;
-  
+
   .rsvp &,
   .registry &,
   .people &,
@@ -93,7 +93,7 @@
   .show-gradient & {
     color: $darkergray;
   }
-  
+
   .is-open & {
     color: white;
     margin-bottom: 25px;
@@ -103,13 +103,13 @@
 .nav-list {
   display: none;
   @include list-base;
-  
+
   .is-open > & {
     flex: 1;
-    
+
     @include l-flex-row;
     flex-wrap: wrap;
-    
+
     > li {
       flex: 1 1 35%;
 
@@ -117,27 +117,27 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     @media only screen and (min-height: 488px) {
       @include l-flex-column($justify: center);
       flex-wrap: nowrap;
-      
+
       > li {
         flex-basis: auto;
       }
     }
   }
-  
+
   @media only screen and (min-width: $nav-breakpoint) {
     @include l-flex-row;
     @include l-constrained;
     flex-wrap: wrap;
-    
+
     .is-open > & {
       position: static;
       display: flex;
     }
-    
+
     > li {
       flex-basis: auto;
       margin-bottom: 0;
@@ -155,7 +155,7 @@
   text-decoration: none;
   padding: 16px 13px;
   font-size: 24px;
-  
+
   @media only screen and (min-height: 666px) { // \m/
     padding: 28px 13px;
     font-size: 24px;
@@ -166,7 +166,7 @@
     padding: 8px 13px;
     font-size: 16px;
     border: 1px solid transparent;
-    
+
     &.active {
       border-color: currentColor;
     }
