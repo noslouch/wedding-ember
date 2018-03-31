@@ -5,9 +5,10 @@
   @include image-container;
   background-image: url('/assets/images/schedule.jpg');
   background-position: 75% 50%;
-  
-  @media only screen and (min-width: 600px) {
-    background-position: top right;
+  align-items: flex-start;
+
+  @media only screen and (min-width: 1180px) {
+    align-items: center;
   }
   
   &:before {
@@ -16,7 +17,14 @@
 }
 
 .schedule-hero-image__headline {
-  @include hero-image-headline-wrapper;
+  position: relative;
+  margin-top: 125px;
+  transition: margin-left 125ms ease;
+
+  @media only screen and (min-width: 1180px) {
+    margin-top: 0;
+    margin-right: -500px;
+  }
 }
 
 .schedule-header {
