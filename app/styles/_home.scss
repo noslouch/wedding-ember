@@ -3,6 +3,7 @@
 
 .home-hero-image {
   @include image-container;
+  margin-bottom: 0;
   background-image: url('/assets/images/tunnel.gif');
   background-position: center;
   
@@ -31,18 +32,62 @@
   @include hero-headline;
 }
 
+.home-banner {
+  position: relative;
+
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:before {
+    content: '';
+    z-index: 0;
+
+    background-image: radial-gradient(circle at center, rgba(0, 0, 0, 0), black 90%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.home-message {
+  position: relative;
+  padding-top: 50px;
+  text-align: center;
+
+  color: white;
+  font-weight: 300;
+  font-family: 'Open Sans';
+  font-size: 55px;
+}
+
 .home-body {
-  @include l-constrained;
-  margin-bottom: 25px;
   
   @media only screen and (min-width: 600px) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
 }
 
 .home-body__left,
 .home-body__right {
   flex: 1;
+}
+
+.home-body__right {
+  padding: 0 15px;
+  text-align: center;
+}
+
+.home-details {
+  padding-top: 50px;
+  margin-bottom: 25px;
+
+  address {
+    font-style: normal;
+  }
 }
