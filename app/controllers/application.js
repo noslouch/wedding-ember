@@ -24,7 +24,7 @@ export default Controller.extend({
       route: 'people',
       label: 'People'
     }, {
-      route: 'registry',
+      url: 'https://registry.theknot.com/melissa-esner-brian-whitton-november-2018-ny/22528407',
       label: 'Registry'
     }, {
       route: 'rsvp',
