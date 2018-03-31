@@ -112,6 +112,10 @@
     
     > li {
       flex: 1 1 35%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     @media only screen and (min-height: 488px) {
@@ -142,8 +146,12 @@
 }
 
 .nav-link {
+  flex: 1;
+
   display: flex;
   align-items: center;
+  justify-content: center;
+
   text-decoration: none;
   padding: 16px 13px;
   font-size: 24px;
@@ -180,9 +188,19 @@
 .nav-links.show-gradient {
   .nav-link {
     color: $darkergray;
+
+    .popout-icon {
+      fill: $darkergray;
+    }
   }
 }
 
 .nav-links.is-open .nav-link {
   color: white;
+
+  .popout-icon {
+    fill: white;
+    width: 16px;
+    height: 16px;
+  }
 }
