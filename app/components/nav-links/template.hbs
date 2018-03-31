@@ -5,7 +5,11 @@
 <ul class="nav-list">
 {{#each routes as |link|}}
   <li>
-    {{link-to link.label link.route classNames="nav-link"}}
+    {{#if link.url}}
+      <a href={{link.url}} target="_blank" class="nav-link">{{link.label}} {{svg-icon 'popout-icon' class='popout-icon'}}</a>
+    {{else}}
+      {{link-to link.label link.route classNames="nav-link"}}
+    {{/if}}
   </li>
 {{/each}}
 </ul>
