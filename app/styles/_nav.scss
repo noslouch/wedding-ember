@@ -142,7 +142,8 @@
 }
 
 .nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
   text-decoration: none;
   padding: 16px 13px;
   font-size: 24px;
@@ -161,6 +162,14 @@
     &.active {
       border-color: currentColor;
     }
+  }
+
+  .popout-icon {
+    margin-left: 5px;
+    width: 12px;
+    height: 12px;
+
+    fill: white;
   }
 }
 
