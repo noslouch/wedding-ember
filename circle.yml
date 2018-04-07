@@ -49,4 +49,8 @@ jobs:
           name: pull down docker image
           command: |
             ssh-keyscan melissaandbriangetmarried.com >> ~/.ssh/known_hosts
-            ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker rmi $(docker images --filter "dangling=true" -q --no-trunc) && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember"
+            ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember"
+            ssh bwhitton@melissaandbriangetmarried.com "docker stop wedding"
+            ssh bwhitton@melissaandbriangetmarried.com "docker rm wedding"
+            ssh bwhitton@melissaandbriangetmarried.com "docker rmi $(docker images --filter "dangling=true" -q --no-trunc)"
+            ssh bwhitton@melissaandbriangetmarried.com "docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember"
