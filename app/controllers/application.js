@@ -1,39 +1,40 @@
-import Controller from 'ember-controller';
-import { bind } from 'ember-runloop';
-import { reads } from 'ember-computed';
-import service from 'ember-service/inject';
-import $ from 'jquery';
+import Controller from '@ember/controller';
+import { bind } from '@ember/runloop';
+import { reads } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+
+const ROUTES = [
+  {
+    route: 'index',
+    label: 'Home'
+  }, {
+    route: 'schedule',
+    label: 'Schedule'
+  }, {
+    route: 'directions',
+    label: 'Directions'
+  }, {
+    route: 'where-to-stay',
+    label: 'Where to Stay'
+  }, {
+    route: 'people',
+    label: 'People'
+  }, {
+    url: 'https://registry.theknot.com/melissa-esner-brian-whitton-november-2018-ny/22528407',
+    label: 'Registry'
+  }, {
+    route: 'rsvp',
+    label: 'RSVP'
+  }
+];
+
 
 export default Controller.extend({
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
-  routes: [
-    {
-      route: 'index',
-      label: 'Home'
-    }, {
-      route: 'schedule',
-      label: 'Schedule'
-    }, {
-      route: 'directions',
-      label: 'Directions'
-    }, {
-      route: 'where-to-stay',
-      label: 'Where to Stay'
-    }, {
-      route: 'people',
-      label: 'People'
-    }, {
-      url: 'https://registry.theknot.com/melissa-esner-brian-whitton-november-2018-ny/22528407',
-      label: 'Registry'
-    }, {
-      route: 'rsvp',
-      label: 'RSVP'
-    }
-  ],
 
   handler() {
-    let heroImage = $('[class*=hero-image]')[0];
+    let heroImage = document.querySelector('[class*=hero-image]');
     if (!heroImage) {
       return;
     }
@@ -49,6 +50,7 @@ export default Controller.extend({
 
   init() {
     this._super(...arguments);
+    this.set('routes', ROUTES);
     if (this.get('isFastBoot')) {
       return;
     }

@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import computed from 'ember-computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import moment from 'moment';
 
 function getDiffs(from, to, _diffs) {
@@ -8,10 +8,16 @@ function getDiffs(from, to, _diffs) {
   return diffs;
 }
 
-export default Ember.Component.extend({
+const DEFAULT_INTERVALS = ['year', 'months', 'weeks', 'days']
+
+export default Component.extend({
   tagName: 'span',
   classNames: ['count-down'],
-  intervals: ['year', 'months', 'weeks', 'days'],
+
+  init() {
+    this._super(...arguments);
+    this.set('intervals', this.intervals || DEFAULT_INTERVALS);
+  },
   formatted: computed('from', 'to', function() {
     let intervals = this.get('intervals');
     let from = this.get('from') ? moment(this.get('from')) : moment();

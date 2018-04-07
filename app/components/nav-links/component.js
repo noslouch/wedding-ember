@@ -1,8 +1,8 @@
-import Ember from 'ember';
-import computed from 'ember-computed';
-import service from 'ember-service/inject';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
-export default Ember.Component.extend({
+export default Component.extend({
   fastboot: service(),
   
   tagName: 'nav',

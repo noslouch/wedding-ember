@@ -10,6 +10,7 @@ jobs:
           AWS_REGION: $AWS_REGION
           RSVP: $RSVP
           REGISTRY: $REGISTRY
+          JOBS: 2
 
     steps:
       - checkout

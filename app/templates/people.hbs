@@ -1,9 +1,11 @@
+{{set-body-class "people"}}
+
 <main class="people-body">
   <h1 class="people-header">Look at These Punims</h1>
-  
+
   <section class="people-block">
     <h2>Wedding Party</h2>
-    
+
     <h3>Bridesmaids</h3>
     <ul class="people-bridesmaids">
     {{#each model.maids as |maid|}}
@@ -18,7 +20,7 @@
       </li>
     {{/each}}
     </ul>
-    
+
     <h3>Groomsmen</h3>
     <ul class="people-groomsmen">
     {{#each model.men as |man|}}

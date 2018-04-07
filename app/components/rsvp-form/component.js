@@ -1,21 +1,27 @@
 import Component from '../form-base/component';
-import computed from 'ember-computed';
+import { computed } from '@ember/object';
 import config from '../../config/environment';
 
 const EMAIL_REGEX = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+const DEFAULT_FIELDS = [
+  'name',
+  'email',
+  'plusOneName',
+  'attending',
+  'songRequest',
+  'comment'
+];
+
 export default Component.extend({
-  fields: [
-    'name',
-    'email',
-    'plusOneName',
-    'attending',
-    'songRequest',
-    'comment'
-  ],
   attending: true,
   submitEndpoint: config.rsvpEndpoint,
-  
+
+  init() {
+    this._super(...arguments);
+    this.set('fields', this.fields || DEFAULT_FIELDS);
+  },
+
   emergencySubmit: computed('name', 'email', 'plusOneName', 'attending', 'songRequest', 'comment', function() {
       let {
         name,
@@ -35,7 +41,7 @@ Anything else? ${comment || ' '}`;
 
     return `mailto:${address}?subject=${subject}&body=${encodeURIComponent(body)}`;
   }),
-  
+
   checkErrors() {
       let {
         name,

@@ -1,6 +1,6 @@
-import Component from 'ember-component';
+import Component from '@ember/component';
 import fetch from 'fetch';
-import computed from 'ember-computed';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   init() {
@@ -20,14 +20,14 @@ export default Component.extend({
       return Boolean(errors);
     }))
   },
-  
+
   checkErrors() {},
 
   clearError(e) {
     let field = e.target.name;
     this.set(`errors.${field}`, []);
   },
-  
+
   actions: {
     submit() {
       let errors = this.checkErrors();
@@ -55,7 +55,7 @@ export default Component.extend({
         .catch(() => this.setProperties({'errors.submit': true, isFetching: false}));
     }
   }
-  
+
 });
 
 function setErrors(error) {
