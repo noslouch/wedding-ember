@@ -24,11 +24,11 @@ jobs:
             - node_modules
 
       - setup_remote_docker
-      - run: 
+      - run:
           name: login to docker hub
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: 
+      - run:
           name: build docker image
           command: |
             docker build\
@@ -36,16 +36,16 @@ jobs:
                 --build-arg RSVP=$RSVP\
                 --build-arg REGISTRY=$REGISTRY\
                 -t noslouch/wedding-ember .
-      - run: 
+      - run:
           name: ship it to docker hub
           command: docker push noslouch/wedding-ember
 
       - deploy:
           name: ship ember assets
-          command: ./node_modules/ember-cli/bin/ember deploy production 
+          command: ./node_modules/ember-cli/bin/ember deploy production
 
       - deploy:
           name: pull down docker image
           command: |
             ssh-keyscan melissaandbriangetmarried.com >> ~/.ssh/known_hosts
-            ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember" 
+            ssh bwhitton@melissaandbriangetmarried.com "docker pull noslouch/wedding-ember && docker stop wedding && docker rm wedding && docker rmi $(docker images --filter "dangling=true" -q --no-trunc) && docker run --name wedding --restart always -d -p 8001:8001 noslouch/wedding-ember"
