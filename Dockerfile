@@ -5,14 +5,12 @@ COPY package.json package-lock.json ./
 
 RUN npm install
 
-RUN npm install -g ember-cli@2.15.1
-
 COPY . .
 
 ARG FINGERPRINT_PREPEND_URL
 ARG RSVP
 ARG REGISTRY
-RUN ember build -prod
+RUN ./node_modules/ember-cli/bin/ember build -prod
 RUN rm -rf tmp node_modules
 
 EXPOSE 8001
