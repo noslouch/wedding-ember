@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.6
+      - image: circleci/node:8
         environment:
           AWS_ACCESS_KEY: $AWS_ACCESS_KEY
           AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
@@ -43,7 +43,7 @@ jobs:
 
       - deploy:
           name: ship ember assets
-          command: ./node_modules/ember-cli/bin/ember deploy production
+          command: npx ember deploy production
 
       - deploy:
           name: pull down docker image
