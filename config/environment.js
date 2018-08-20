@@ -23,6 +23,8 @@ module.exports = function(environment) {
     },
     RSVP: eval(process.env.RSVP), // to make 'false' -> false
     REGISTRY: eval(process.env.REGISTRY),
+
+    API: process.env.API || 'https://api.melissaandbriangetmarried.com',
   };
 
   if (environment === 'development') {
@@ -31,6 +33,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      // enabled: false
+    }
   }
 
   if (environment === 'test') {
@@ -43,6 +48,8 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.RSVP = true;
   }
     // here you can enable a production-specific feature
   if (environment === 'production') {
