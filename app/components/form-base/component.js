@@ -1,26 +1,11 @@
 import Component from '@ember/component';
 import fetch from 'fetch';
-import { computed } from '@ember/object';
 
 export default Component.extend({
   init() {
     this._super(...arguments);
     this.set('errors', {});
-    this.set('hasErrors', computed(`errors.{${this.get('fields')},submit}`, function() {
-      let errors = 0;
-      let fields = this.get('fields');
-      fields.forEach(f => {
-        if (this.get(`errors.${f}.length`)) {
-          errors++;
-        }
-      })
-      if (this.get('errors.submit')) {
-        errors++;
-      }
-      return Boolean(errors);
-    }))
   },
-
   checkErrors() {},
 
   clearError(e) {
