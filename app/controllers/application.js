@@ -63,6 +63,6 @@ export default Controller.extend({
     if (this.get('isFastBoot')) {
       return;
     }
-    window.removeEventListner('scroll', this.get('_boundHandler'));
+    window.removeEventListener('scroll', this.get('_boundHandler'));
   },
 });
