@@ -16,7 +16,7 @@ export default Factory.extend({
     ${faker.address.streetAddress()}
     ${faker.address.city()}, ${faker.address.state()}
     ${faker.address.zipCode()}
-  `.split('\n').map(trim).filter(Boolean).join('\n'),
+  `.split('\n').map(trim),
 
   plusOne: false,
   rehearsalDinner: false,
