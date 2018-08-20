@@ -16,7 +16,7 @@
   border-bottom: 1px solid currentColor;
   line-height: 1;
   transition: border-bottom-color 125ms ease;
-  
+
   &:hover {
     border-bottom-color: #ccc;
   }
@@ -34,24 +34,26 @@
   padding: 0;
   margin: 0;
   margin-bottom: 20px;
-  
+
   > legend {
     margin-bottom: 10px;
   }
-  
+
 }
 
-@mixin input-base {
+@mixin input-base(
+  $margin: 0 0 35px 0,
+) {
   display: block;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 35px;
+  margin: $margin;
   border: 1px solid $lightergray;
   padding: 7px;
   line-height: 1;
-  
+
   transition: border-color 125ms ease;
-  
+
   &:focus {
     outline: none;
     border-color: $darkergray;
@@ -63,7 +65,7 @@
     margin-bottom: 0;
     border-color: $red;
   }
-}  
+}
 
 @mixin block-btn {
   @include btn;
@@ -71,11 +73,10 @@
   padding: 15px 30px;
   background-color: rgba($lightergray, 0);
   transition: background-color 125ms ease;
-  
+
   &:hover {
     background-color: rgba($lightergray, 1);
   }
-  
 }
 
 @mixin error-display {
