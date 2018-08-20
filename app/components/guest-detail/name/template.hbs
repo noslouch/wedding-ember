@@ -1,0 +1,16 @@
+{{#unless canEditName}}
+  {{guest.firstName}} {{guest.lastName}}
+{{else}}
+  {{input
+    data-test-guest-first-input
+    class="guest-name__input"
+    value=guest.firstName
+    name="firstName"
+  }}
+  {{input
+    data-test-guest-last-input
+    class="guest-name__input"
+    value=guest.lastName
+    name="lastName"
+  }}
+{{/unless}}

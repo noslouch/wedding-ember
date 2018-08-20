@@ -1,0 +1,63 @@
+@import "../mixins/forms";
+
+.invite-search {
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__wrapper {
+    flex-basis: 100%;
+    margin-bottom: 35px;
+  }
+
+  &__label {
+    line-height: 1.5;
+  }
+
+  &__button {
+    @include block-btn;
+
+    &[disabled] {
+      pointer-events: none;
+      cursor: disabled;
+      opacity: 0.5;
+    }
+
+    .fa-spin {
+      margin-right: 5px;
+    }
+  }
+
+  &__results {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 35px;
+    border: 1px solid $lightergray;
+    transition: border-color 125ms ease;
+
+    &:hover {
+      border-color: $darkergray;
+    }
+  }
+}
+
+.invite-search__input {
+  @include input-base($margin: 0);
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  border-width: 0 0 1px 0;
+
+  &::placeholder {
+    font-size: 14px;
+    font-style: oblique;
+    color: rgba(0, 0, 0, 0.25);
+  }
+}

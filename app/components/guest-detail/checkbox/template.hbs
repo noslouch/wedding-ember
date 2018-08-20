@@ -1,0 +1,8 @@
+{{!-- for styling --}}
+<label for={{concat 'checkbox-' elementId}} class="guest-checkbox__label"></label>
+{{input
+  id=(concat 'checkbox-' elementId)
+  type="checkbox"
+  class="guest-checkbox__input"
+  checked=(get guest name)
+}}

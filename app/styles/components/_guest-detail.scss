@@ -1,0 +1,35 @@
+.guest-detail {
+  display: flex;
+  padding: 8px;
+  transition: background-color 125ms ease;
+
+  &:nth-child(2) {
+    background-color: #f9f9f9;
+  }
+
+  &:hover {
+    background-color: #f6fdfa;
+  }
+
+  &__name {
+    flex-basis: 25%;
+  }
+
+  &__inputs {
+    flex: 1;
+    display: flex;
+  }
+}
+
+.guest-checkbox {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__label,
+  input {
+    cursor: pointer;
+  }
+}
