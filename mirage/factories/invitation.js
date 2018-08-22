@@ -27,13 +27,33 @@ export default Factory.extend({
   bothAttending:    addGuests('attending'),
   bothNotAttending: addGuests('notAttending'),
 
-  bothRehearsal: addGuests('attendingRehearsal'),
   bothBrunch:    addGuests('comingToBrunch'),
-  bothAll:       addGuests('comingToItAll'),
+
+  bothRehearsal: trait({
+    rehearsalDinner: true,
+    afterCreate(invitation, server) {
+      server.createList('guest', 2, { invitation }, 'attendingRehearsal');
+    }
+  }),
+
+  bothAll: trait({
+    rehearsalDinner: true,
+    afterCreate(invitation, server) {
+      server.createList('guest', 2, { invitation }, 'comingToItAll');
+    }
+  }),
+
+  plusOneInvite: trait({
+    plusOne: true,
+    afterCreate(invitation, server) {
+      server.create('guest', { invitation });
+    }
+  }),
 
   includePlusOne: trait({
     plusOne: true,
     afterCreate(invitation, server) {
+      server.create('guest', { invitation });
       server.create('guest', { invitation }, 'guestOfAGuest');
     }
   })

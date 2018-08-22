@@ -17,5 +17,5 @@ export default Factory.extend({
   comingToBrunch: trait({ sundayBrunch: true, weddingRsvp: true }),
   comingToItAll: trait({ rehearsalRsvp: true,  sundayBrunch: true, weddingRsvp: true }),
 
-  guestOfAGuest: trait({ isPluseOne: true }),
+  guestOfAGuest: trait({ isPlusOne: true }),
 });
