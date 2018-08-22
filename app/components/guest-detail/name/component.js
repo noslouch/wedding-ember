@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  tagName: '',
+  classNames: ['guest-name'],
+  classNameBindings: ['canEditName:is-editing'],
 });

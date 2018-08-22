@@ -1,16 +1,31 @@
-{{#unless canEditName}}
-  {{guest.firstName}} {{guest.lastName}}
-{{else}}
+{{yield}}
+
+{{#if canEditName}}
+  <label class="guest-name__label" for={{concat 'first-name-' elementId}}>
+    First Name
+  </label>
   {{input
     data-test-guest-first-input
+    id=(concat 'first-name-' elementId)
     class="guest-name__input"
     value=guest.firstName
     name="firstName"
+    placholder="e.g. Jane"
   }}
+
+  <label class="guest-name__label" for={{concat 'last-name-' elementId}}>
+    Last Name
+  </label>
   {{input
     data-test-guest-last-input
+    id=(concat 'last-name-' elementId)
     class="guest-name__input"
     value=guest.lastName
     name="lastName"
+    placholder="e.g. Doe"
   }}
-{{/unless}}
+{{else if (or guest.firstName guest.lastName)}}
+  {{guest.firstName}} {{guest.lastName}}
+{{else}}
+  <span class="guest-name__info">Click the pencil to add a name</span>
+{{/if}}
