@@ -8,7 +8,7 @@
       Name
     </div>
     <div class="invite-header__flex-col">
-      The Wedding!
+      Coming to the wedding?
     </div>
     <div class="invite-header__flex-col">
       Sunday Brunch
@@ -35,14 +35,39 @@
 </div>
 
 {{#if invitation.plusOne}}
-<div class="invite-detail__plus-one" data-test-plusone>
-  <div class="invite-detail__edit">
-    <button type="button" data-test-edit-plusone {{action (mut editName) (not editName)}}>
-      edit
-    </button>
+<section class="invite-detail__plus-one" data-test-plusone>
+  <h2 class="invite-detail__header">
+    Oh, cool. You've got a plus one!
+  </h2>
+  <div class="invite-header">
+    <div class="invite-header__name">
+      Their Name
+    </div>
+    <div class="invite-header__flex-col">
+      Coming to the wedding?
+    </div>
+    <div class="invite-header__flex-col">
+      Sunday Brunch
+    </div>
+    {{#if invitation.rehearsalDinner}}
+    <div class="invite-header__flex-col">
+      Rehearsal Dinner
+    </div>
+    {{/if}}
   </div>
+
   {{#guest-detail guest=plusOne as |row|}}
-    {{row.name canEditName=editName}}
+    {{#row.name canEditName=editName}}
+      <div class="invite-detail__edit">
+        <button type="button" data-test-edit-plusone {{action (mut editName) (not editName)}}>
+          {{#if editName}}
+            {{fa-icon prefix='far' icon='check-circle'}}
+          {{else}}
+            {{fa-icon prefix='far' icon='edit'}}
+          {{/if}}
+        </button>
+      </div>
+    {{/row.name}}
 
     {{row.wedding}}
     {{row.brunch}}
@@ -51,11 +76,31 @@
     {{/if}}
 
   {{/guest-detail}}
-</div>
+</section>
 {{/if}}
 
-<div class="invite-detai__footer">
-  <button type="submit" data-test-submit-rsvp {{action send}}>
+<div class="invite-detail__music">
+  <label
+    class="invite-detail__music-label"
+    for="song-request">
+    Unless you play this song, I won't dance:
+  </label>
+
+  {{textarea
+    id="song-request"
+    rows="6"
+    cols="80"
+    class="invite-detail__music-input"
+    value=invitation.musicPref
+    placeholder="e.g. YMCA by The Village People"}}
+</div>
+
+<div class="invite-detail__footer">
+  <button
+    class="invite-detail__submit"
+    type="submit"
+    data-test-submit-rsvp
+    {{action send}}>
     Submit
   </button>
 </div>
