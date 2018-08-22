@@ -28,6 +28,8 @@ export default function() {
 
   this.urlPrefix = config.API;
 
+  this.get('/invitations/:id');
+
   this.get('/invitations', function({ invitations, guests }, request) {
     let { queryParams: { q }} = request;
     if (q) {
