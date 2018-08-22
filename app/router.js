@@ -11,7 +11,11 @@ Router.map(function() {
   this.route('where-to-stay');
   this.route('people');
   this.route('registry');
-  this.route('rsvp');
+  this.route('rsvp', function() {
+    if (config.environment === 'development') {
+      this.route('invite', {path: ':id'});
+    }
+  });
   this.route('directions');
 });
 
