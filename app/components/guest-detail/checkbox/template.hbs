@@ -6,3 +6,13 @@
   checked=(get guest name)
 }}
 <label for={{concat 'checkbox-' elementId}} class="guest-checkbox__label"></label>
+
+{{#if (and touched (get guest name))}}
+  <div class="checkbox-yay">
+    {{svg-icon 'popper'}}
+  </div>
+{{else if touched}}
+  <div class="checkbox-boo">
+    {{svg-icon 'cat'}}
+  </div>
+{{/if}}
