@@ -10,6 +10,6 @@ export default DS.Model.extend({
   sundayBrunch:  DS.attr('boolean'),
 
   isPlusOne:  DS.attr('boolean'),
-  
+
   invitation: DS.belongsTo('invitation'),
 });
