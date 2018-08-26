@@ -1,11 +1,26 @@
 <div class="guest-detail__name" data-test-guest-name>
-  {{yield (hash name=(component 'guest-detail/name' guest=guest canEditName=canEditName))}}
+  {{yield (hash
+    name=(component 'guest-detail/name'
+      guest=guest
+      canEditName=canEditName)
+  )}}
 </div>
 
 <div class="guest-detail__inputs">
   {{yield (hash
-    wedding=(component 'guest-detail/checkbox' guest=guest name='weddingRsvp')
-    brunch=(component 'guest-detail/checkbox' guest=guest name='sundayBrunch')
-    rehearsal=(component 'guest-detail/checkbox' guest=guest name='rehearsalRsvp')
+    wedding=(component 'guest-detail/checkbox'
+      label='Coming to the wedding?'
+      guest=guest
+      name='weddingRsvp')
+
+    brunch=(component 'guest-detail/checkbox'
+      label='How about brunch on Sunday?'
+      guest=guest
+      name='sundayBrunch')
+
+    rehearsal=(component 'guest-detail/checkbox'
+      label="And you're invited to the rehearsal dinner. Coming?"
+      guest=guest
+      name='rehearsalRsvp')
   )}}
 </div>

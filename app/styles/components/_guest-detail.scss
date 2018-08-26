@@ -1,33 +1,34 @@
+@import "../mixins/forms";
+
 .guest-detail {
-  display: flex;
-  padding: 8px;
-  transition: background-color 125ms ease;
+  margin-bottom: 27px;
 
-  &:nth-child(2) {
-    background-color: #f9f9f9;
-  }
-
-  &:hover {
-    background-color: #f6fdfa;
+  @media only screen and (min-width: 800px) {
+    margin-bottom: 0;
   }
 
   &__name {
-    position: relative;
-    flex-basis: 25%;
+    font-size: 18px;
+    margin-bottom: 9px;
+
+    @media only screen and (min-width: 800px) {
+      margin-bottom: 14px;
+    }
   }
 
   &__inputs {
-    flex: 1;
-    display: flex;
+    border: 1px solid $darkergray;
+    padding: 18px;
   }
 }
 
 .guest-checkbox {
-  flex: 1;
+  position: relative;
+  margin-bottom: 14px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   &__label,
   input {
@@ -44,8 +45,14 @@
     content: '';
     display: block;
 
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 20px;
+    height: 20px;
     border: 1px solid $darkergray;
   }
 
@@ -61,9 +68,8 @@
 
     position: absolute;
     top: 0;
-    right: 0;
+    right: 7px;
     bottom: 2px;
-    left: 0;
     margin: auto;
 
 
@@ -78,26 +84,84 @@
   }
 
   &__label {
-    position: relative;
-
+    display: block;
     cursor: pointer;
+
+    text-align: right;
+
+    padding: 8px 29px 8px 0;
   }
 }
 
 .guest-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &.is-editing {
-    text-align: left;
+  &__header {
+    display: flex;
+    align-items: center;
   }
+
+  &.is-plus-one &__text {
+    padding-bottom: 4px;
+    border-bottom: 1px currentColor dashed;
+  }
+
+  &.is-plus-one:hover {
+    cursor: pointer;
+    color: $green;
+
+    .guest-name__info {
+      color: $green;
+    }
+  }
+
+  &.is-plus-one.is-editing {
+    text-align: left;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: 600px) {
+      flex-wrap: no wrap;
+    }
+
+    &:hover {
+      color: $darkergray;
+      cursor: default;
+    }
+  }
+
+  &__input-wrapper {
+    flex-basis: 100%;
+    margin-bottom: 16px;
+
+    @media only screen and (min-width: 600px) {
+      flex-basis: 44%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    color: $gray;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 12px;
+    }
+  }
+
 
   &__input {
     font-family: 'Open Sans', sans-serif;
     display: block;
     width: 100%;
     border: 1px solid $lightergray;
-    padding: 3px;
+    padding: 6px;
     line-height: 1;
-    margin-bottom: 8px;
 
     transition: border-color 125ms ease;
 
@@ -106,21 +170,46 @@
       border-color: $darkergray;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &::placeholder {
+      font-size: 14px;
+      font-style: oblique;
+      color: $gray;
     }
-  }
 
-  &__label {
-    display: block;
-    font-size: 12px;
-    margin-bottom: 8px;
+    @media only screen and (min-width: 600px) {
+      padding: 3px;
+    }
   }
 
   &__info {
     font-size: 12px;
     font-style: oblique;
     color: $gray;
+    margin-left: 8px;
+  }
+
+  &__save {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+
+    margin-bottom: 7px;
+
+    @media only screen and (min-width: 600px) {
+      flex-basis: auto;
+      justify-content: flex-start;
+    }
+  }
+
+  &__save-button {
+    @include btn;
+    font-size: 30px;
+    transition: color 125ms ease;
+
+    &:hover {
+      color: $green;
+    }
   }
 }
 

@@ -1,31 +1,54 @@
-{{yield}}
+{{#if (and isEditing guest.isPlusOne)}}
+  <div class="guest-name__input-wrapper">
+    <label class="guest-name__label" for={{concat 'first-name-' elementId}}>
+      First Name
+    </label>
+    {{input
+      data-test-guest-first-input
+      id=(concat 'first-name-' elementId)
+      class="guest-name__input"
+      value=guest.firstName
+      name="firstName"
+      placeholder="e.g. Jane"
+    }}
+  </div>
 
-{{#if canEditName}}
-  <label class="guest-name__label" for={{concat 'first-name-' elementId}}>
-    First Name
-  </label>
-  {{input
-    data-test-guest-first-input
-    id=(concat 'first-name-' elementId)
-    class="guest-name__input"
-    value=guest.firstName
-    name="firstName"
-    placholder="e.g. Jane"
-  }}
+  <div class="guest-name__input-wrapper">
+    <label class="guest-name__label" for={{concat 'last-name-' elementId}}>
+      Last Name
+    </label>
+    {{input
+      data-test-guest-last-input
+      id=(concat 'last-name-' elementId)
+      class="guest-name__input"
+      value=guest.lastName
+      name="lastName"
+      placeholder="e.g. Doe"
+      enter=(action (mut isEditing) false)
+    }}
+  </div>
 
-  <label class="guest-name__label" for={{concat 'last-name-' elementId}}>
-    Last Name
-  </label>
-  {{input
-    data-test-guest-last-input
-    id=(concat 'last-name-' elementId)
-    class="guest-name__input"
-    value=guest.lastName
-    name="lastName"
-    placholder="e.g. Doe"
-  }}
-{{else if (or guest.firstName guest.lastName)}}
-  {{guest.firstName}} {{guest.lastName}}
+  <div class="guest-name__save">
+    <button
+      class="guest-name__save-button"
+      data-test-save-name
+      {{action (mut isEditing) false preventDefault=true}}>
+      {{fa-icon icon='check-circle' prefix='far'}}
+    </button>
+  </div>
 {{else}}
-  <span class="guest-name__info">Click the pencil to add a name</span>
+  <div class="guest-name__header" {{action edit}}>
+    <span class="guest-name__text">
+      {{#if (or guest.firstName guest.lastName)}}
+        {{guest.firstName}} {{guest.lastName}}
+      {{else}}
+        Guest
+      {{/if}}
+    </span>
+
+    {{#if guest.isPlusOne}}
+      <span class="guest-name__info">click to edit</span>
+    {{/if}}
+  </div>
+
 {{/if}}
