@@ -23,6 +23,10 @@
 }
 
 .guest-checkbox {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
   position: relative;
   margin-bottom: 14px;
 

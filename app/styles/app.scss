@@ -9,6 +9,7 @@
 @import "components/invite-search";
 @import "components/invite-detail";
 @import "components/guest-detail";
+@import "components/brunch-info";
 
 // ROUTES
 @import "home";
@@ -18,3 +19,5 @@
 @import "people";
 @import "registry";
 @import "rsvp";
+
+@import "ember-basic-dropdown";

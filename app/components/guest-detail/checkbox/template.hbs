@@ -8,12 +8,10 @@
 }}
 
 <label for={{concat 'checkbox-' elementId}} class="guest-checkbox__label">
-{{#if (has-block)}}
-  {{yield}}
-{{else}}
   {{label}}
-{{/if}}
 </label>
+
+{{yield}}
 
 {{#if (and touched (get guest name))}}
   <div class="checkbox-yay">

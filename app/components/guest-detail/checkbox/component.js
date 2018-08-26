@@ -6,7 +6,9 @@ export default Component.extend({
 
   'data-test-checkbox': reads('name'),
 
-  click() {
-    this.set('touched', true);
+  click(e) {
+    if (['INPUT', 'LABEL'].includes(e.target.tagName)) {
+      this.set('touched', true);
+    }
   }
 });
