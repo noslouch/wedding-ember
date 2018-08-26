@@ -1,16 +1,12 @@
-{{#basic-dropdown
-  calculatePosition=calculatePosition
-  as |dd|}}
-  {{#dd.trigger class="brunch-info__trigger"}}more{{/dd.trigger}}
+{{#pop-up as |pop|}}
+  {{#pop.trigger class="brunch-info__trigger"}}more{{/pop.trigger}}
 
-  {{#dd.content class="brunch-info__content"}}
-    <div class="brunch-info__wrapper">
-      <p>
-        Sunday brunch at 11 am on  November 11!
-      </p>
-      <p>
-        Join us at the hotel the day after for bagels and lox and stuff.
-      </p>
-    </div>
-  {{/dd.content}}
-{{/basic-dropdown}}
+  {{#pop.body class="brunch-info__content"}}
+    <p>
+      Sunday brunch at 11 am on  November 11!
+    </p>
+    <p>
+      Join us at the hotel the day after for bagels and lox and stuff.
+    </p>
+  {{/pop.body}}
+{{/pop-up}}
