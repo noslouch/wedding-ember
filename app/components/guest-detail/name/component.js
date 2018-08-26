@@ -6,6 +6,9 @@ export default Component.extend({
   classNameBindings: ['isEditing:is-editing', 'guest.isPlusOne:is-plus-one'],
 
   hasError: computed('needPlusOne', 'guest.{firstName,lastName}', function() {
+    if (!this.guest) {
+      return false;
+    }
     let { firstName, lastName, isPlusOne } = this.guest;
     if ((!firstName && !lastName) && isPlusOne && this.needPlusOne) {
       return true;

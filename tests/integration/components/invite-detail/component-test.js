@@ -33,38 +33,44 @@ module('Integration | Component | invite-detail', function(hooks) {
   });
 
   test('plus ones', async function(assert) {
-    const INVITATION = {
+    const store = this.owner.lookup('service:store');
+
+    const INVITATION = store.createRecord('invitation', {
       address: '123 Main street',
       plusOne: true,
-      guests: [{
-        firstName: 'Foo',
-        lastName: 'Bar'
-      }]
-    };
-    const PLUS_ONE = {
+    });
+    const GUEST = store.createRecord('guest', {
+      firstName: 'Foo',
+      lastName: 'Bar',
+      invitation: INVITATION
+    });
+
+    const PLUS_ONE = store.createRecord('guest', {
       firstName: 'Booza',
       lastName: 'Bombooza',
       isPlusOne: true
-    };
+    });
 
     this.set('invitation', INVITATION);
 
     await render(hbs`{{invite-detail invitation=invitation}}`);
 
-    assert.dom('[data-test-plusone]').exists('provides a plus one area if one does not exist');
+    assert.dom('.guest-detail').exists({count: 2}, 'renders two guest details if invite says plus one');
 
-    INVITATION.guests.pushObject(PLUS_ONE);
+    INVITATION.set('guests', [
+      GUEST,
+      PLUS_ONE
+    ]);
     await render(hbs`{{invite-detail invitation=invitation}}`);
 
-    assert.dom('.invite-detail__guests [data-test-guest-detail]').exists({count: 1}, 'only primary guests are in the top section');
-    assert.dom('[data-test-plusone] [data-test-guest-name]').hasText('Booza Bombooza');
+    assert.dom('[data-test-plus-one] [data-test-guest-name]').hasText('Booza Bombooza');
 
-    await click('[data-test-edit-plusone]');
+    await click('[data-test-plus-one] [data-test-guest-name]');
     await fillIn('[data-test-guest-first-input]', 'Quz');
     await fillIn('[data-test-guest-last-input]', 'Bazz');
-    await click('[data-test-edit-plusone]');
+    await click('[data-test-save-name]');
 
-    assert.dom('[data-test-plusone] [data-test-guest-name]').hasText('Quz Bazz');
+    assert.dom('[data-test-plus-one] [data-test-guest-name]').hasText('Quz Bazz');
 
     assert.equal(PLUS_ONE.firstName, 'Quz');
     assert.equal(PLUS_ONE.lastName, 'Bazz');

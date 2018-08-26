@@ -12,15 +12,6 @@ module('Integration | Component | guest-detail/name', function(hooks) {
 
     await render(hbs`{{guest-detail/name}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#guest-detail/name}}
-        template block text
-      {{/guest-detail/name}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('.guest-name__text').hasText('Guest', 'no name is rendered as guest');
   });
 });

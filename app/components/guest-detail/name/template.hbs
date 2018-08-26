@@ -38,7 +38,7 @@
   </div>
 {{else}}
   <div class="guest-name__header {{if hasError 'has-error'}}" {{action edit}}>
-    <span class="guest-name__text">
+    <span class="guest-name__text" data-test-guest-name>
       {{#if (or guest.firstName guest.lastName)}}
         {{guest.firstName}} {{guest.lastName}}
       {{else}}

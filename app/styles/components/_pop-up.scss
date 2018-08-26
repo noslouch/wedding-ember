@@ -1,3 +1,5 @@
+@import "../mixins/forms";
+
 .pop-up {
   display: flex;
   justify-content: flex-end;
@@ -5,7 +7,8 @@
   flex-basis: 100%;
 
   &__trigger {
-    cursor: pointer;
+    @include btn;
+
     font-size: 12px;
     border-bottom: 1px $gray dashed;
 

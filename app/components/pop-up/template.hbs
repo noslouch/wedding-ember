@@ -2,7 +2,7 @@
   calculatePosition=calculatePosition
   as |dd|}}
   {{yield (hash
-    trigger=(component dd.trigger classNames="pop-up__trigger")
+    trigger=(component dd.trigger tagName="button" classNames="pop-up__trigger")
     body=(component 'pop-up/body' content=dd.content)
   )}}
 {{/basic-dropdown}}

@@ -1,26 +1,16 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | brunch-info', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
     await render(hbs`{{brunch-info}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    await click('.brunch-info__trigger');
 
-    // Template block usage:
-    await render(hbs`
-      {{#brunch-info}}
-        template block text
-      {{/brunch-info}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('.brunch-info__content').exists('pops up with brunch info!');
   });
 });
