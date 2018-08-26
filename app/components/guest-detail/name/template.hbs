@@ -37,7 +37,7 @@
     </button>
   </div>
 {{else}}
-  <div class="guest-name__header" {{action edit}}>
+  <div class="guest-name__header {{if hasError 'has-error'}}" {{action edit}}>
     <span class="guest-name__text">
       {{#if (or guest.firstName guest.lastName)}}
         {{guest.firstName}} {{guest.lastName}}
@@ -47,7 +47,13 @@
     </span>
 
     {{#if guest.isPlusOne}}
-      <span class="guest-name__info">click to edit</span>
+      <span class="guest-name__info">
+        {{#unless hasError}}
+          click to edit
+        {{else}}
+          please enter a guest name
+        {{/unless}}
+      </span>
     {{/if}}
   </div>
 

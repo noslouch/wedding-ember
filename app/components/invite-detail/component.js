@@ -27,6 +27,12 @@ export default Component.extend({
   },
 
   send() {
+    if (this.plusOne && (!this.plusOne.firstName || !this.plusOne.firstName)) {
+      this.set('needPlusOne', true);
+      return;
+    } else {
+      this.set('needPlusOne', false);
+    }
     if (this.sendResponse) {
       this.sendResponse(this.invitation);
     }

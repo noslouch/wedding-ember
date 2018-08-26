@@ -3,7 +3,7 @@
 
   <div class="invite-detail__guest">
     {{#guest-detail data-test-guest-detail-index=i guest=guest as |row|}}
-      {{row.name}}
+      {{row.name needPlusOne=needPlusOne}}
 
       {{row.wedding}}
       {{#row.brunch}}
@@ -38,7 +38,7 @@
 
 <div class="invite-detail__footer">
   <button
-    class="invite-detail__submit"
+    class="invite-detail__submit {{if needPlusOne 'has-error'}}"
     type="submit"
     data-test-submit-rsvp
     {{action send}}>

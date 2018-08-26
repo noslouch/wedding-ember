@@ -57,6 +57,11 @@
       opacity: 0.5;
     }
 
+    &.has-error {
+      color: $red;
+      border-color: $red;
+    }
+
     .fa-spin {
       margin-right: 5px;
     }
