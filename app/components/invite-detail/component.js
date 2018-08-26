@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { inject } from '@ember/service';
 
 export default Component.extend({
@@ -23,13 +22,6 @@ export default Component.extend({
       this.set('plusOne', plusOne);
     }
   },
-  plusOne: computed('invitation.guests', function() {
-    return this.invitation.guests.findBy('isPlusOne');
-  }),
-  guests: computed('invitation.guests', function() {
-    return this.invitation.guests.rejectBy('isPlusOne');
-  }),
-
   submit(e) {
     e.preventDefault();
   },

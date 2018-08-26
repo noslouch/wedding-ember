@@ -1,83 +1,24 @@
-<h2 class="invite-detail__header">
-  Who's Coming?
-</h2>
-
 <div class="invite-detail__guests">
-  <div class="invite-header">
-    <div class="invite-header__name">
-      Name
-    </div>
-    <div class="invite-header__flex-col">
-      Coming to the wedding?
-    </div>
-    <div class="invite-header__flex-col">
-      Sunday Brunch
-    </div>
-    {{#if invitation.rehearsalDinner}}
-    <div class="invite-header__flex-col">
-      Rehearsal Dinner
-    </div>
-    {{/if}}
-  </div>
-  {{#each guests as |guest i|}}
+  {{#each invitation.guests as |guest i|}}
 
+  <div class="invite-detail__guest">
     {{#guest-detail data-test-guest-detail-index=i guest=guest as |row|}}
       {{row.name}}
+
       {{row.wedding}}
-      {{row.brunch}}
+      {{#row.brunch}}
+        How about brunch on Sunday? {{brunch-info}}
+      {{/row.brunch}}
 
       {{#if invitation.rehearsalDinner}}
         {{row.rehearsal}}
       {{/if}}
+
     {{/guest-detail}}
+  </div>
 
   {{/each}}
 </div>
-
-{{#if invitation.plusOne}}
-<section class="invite-detail__plus-one" data-test-plusone>
-  <h2 class="invite-detail__header">
-    Oh, cool. You've got a plus one!
-  </h2>
-  <div class="invite-header">
-    <div class="invite-header__name">
-      Their Name
-    </div>
-    <div class="invite-header__flex-col">
-      Coming to the wedding?
-    </div>
-    <div class="invite-header__flex-col">
-      Sunday Brunch
-    </div>
-    {{#if invitation.rehearsalDinner}}
-    <div class="invite-header__flex-col">
-      Rehearsal Dinner
-    </div>
-    {{/if}}
-  </div>
-
-  {{#guest-detail guest=plusOne as |row|}}
-    {{#row.name canEditName=editName}}
-      <div class="invite-detail__edit">
-        <button type="button" data-test-edit-plusone {{action (mut editName) (not editName)}}>
-          {{#if editName}}
-            {{fa-icon prefix='far' icon='check-circle'}}
-          {{else}}
-            {{fa-icon prefix='far' icon='edit'}}
-          {{/if}}
-        </button>
-      </div>
-    {{/row.name}}
-
-    {{row.wedding}}
-    {{row.brunch}}
-    {{#if invitation.rehearsalDinner}}
-      {{row.rehearsal}}
-    {{/if}}
-
-  {{/guest-detail}}
-</section>
-{{/if}}
 
 <div class="invite-detail__music">
   <label

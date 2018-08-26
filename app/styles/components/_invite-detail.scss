@@ -7,27 +7,19 @@
     margin-bottom: 25px;
   }
 
-  &__guests,
-  &__plus-one {
+  &__guests {
     margin-bottom: 35px;
+
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
   }
 
-  &__edit {
-    position: absolute;
-    left: -30px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-
-    display: flex;
-
-    button {
-      @include btn;
-      display: block;
-
-      &:hover {
-        color: $green;
-      }
+  &__guest {
+    @media only screen and (min-width: 800px) {
+      flex-basis: 48%;
     }
   }
 
@@ -44,6 +36,13 @@
       resize: vertical;
       padding: 8px;
       width: 100%;
+      border: 1px solid $darkergray;
+
+      &::placeholder {
+        font-style: oblique;
+        color: $gray;
+        font-size: 14px;
+      }
     }
 
   }
@@ -61,25 +60,5 @@
     .fa-spin {
       margin-right: 5px;
     }
-  }
-}
-
-.invite-header {
-  display: flex;
-  padding-bottom: 10px;
-  border-bottom: 1px solid $darkergray;
-  font-size: 14px;
-
-  &__name {
-    flex-basis: 25%;
-  }
-
-  &__flex-col {
-    flex: 1;
-  }
-
-  &__name,
-  &__flex-col {
-    padding: 0 3px;
   }
 }
