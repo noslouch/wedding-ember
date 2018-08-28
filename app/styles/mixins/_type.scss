@@ -1,15 +1,15 @@
 @mixin hero-image-headline-wrapper {
   position: relative;
-  
+
   max-width: 500px;
-  
+
   margin-left: 0;
   transition: margin-left 125ms ease;
-  
+
   @media only screen and (min-width: 800px) {
     margin-left: -240px;
   }
-  
+
   @media only screen and (min-width: 1000px) {
     margin-left: -500px;
   }
@@ -20,9 +20,9 @@
   color: white;
   margin-bottom: 10px;
   text-align: center;
-  
+
   transition: font-size 125ms ease;
-  
+
   @media only screen and (min-width: 600px) {
     font-size: 48px;
   }
@@ -38,19 +38,19 @@
   > h2 {
     font-size: 24px;
     margin-bottom: 35px;
-    
+
     @media only screen and (min-width: 600px) {
       font-size: 34px;
     }
   }
-  
+
   > h3 {
     font-size: 20px;
     margin-bottom: 35px;
-    
+
     @media only screen and (min-width: 600px) {
       font-size: 24px;
     }
   }
-  
+
 }
