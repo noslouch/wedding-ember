@@ -1,5 +1,7 @@
 import Component from '@ember/component';
 import { inject } from '@ember/service';
+import { get } from '@ember/object';
+import { sort } from '@ember/object/computed';
 
 export default Component.extend({
   tagName: 'form',
@@ -22,9 +24,18 @@ export default Component.extend({
       this.set('plusOne', plusOne);
     }
   },
+
   submit(e) {
     e.preventDefault();
   },
+
+  guests: sort('invitation.guests', function(a, b) {
+    if (get(a, 'isPlusOne')) {
+      return 1;
+    } else if (get(b, 'isPlusOne')) {
+      return -1;
+    }
+  }),
 
   send() {
     if (this.plusOne && (!this.plusOne.firstName || !this.plusOne.firstName)) {

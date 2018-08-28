@@ -1,5 +1,5 @@
-<div class="invite-detail__guests">
-  {{#each invitation.guests as |guest i|}}
+<div class="invite-detail__guests {{if (eq guests.length 1) 'invite-detail__guests--solo'}}">
+  {{#each guests as |guest i|}}
 
   <div class="invite-detail__guest">
     {{#guest-detail data-test-guest-detail-index=i guest=guest as |row|}}
