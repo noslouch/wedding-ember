@@ -1,6 +1,6 @@
 import { module } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, fillIn, click, focus, triggerKeyEvent } from '@ember/test-helpers';
+import { render, fillIn, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import test from 'ember-sinon-qunit/test-support/test';
 
@@ -13,7 +13,7 @@ module('Integration | Component | invite-search', function(hooks) {
     let store = this.owner.lookup('service:store');
     this.mock(store)
       .expects('query')
-      .twice()
+      .once()
       .withArgs('invitation', {q: EMAIL})
       .resolves([]);
 
@@ -21,9 +21,6 @@ module('Integration | Component | invite-search', function(hooks) {
 
     await fillIn('[data-test-invite-input]', EMAIL);
     await click('[data-test-invite-submit]');
-
-    await focus('[data-test-invite-input]');
-    await triggerKeyEvent('[data-test-invite-input]', 'keyup', 13);
   });
 
   test('selecting a result', async function(assert) {
