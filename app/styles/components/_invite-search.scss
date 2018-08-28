@@ -41,6 +41,7 @@
     padding: 35px;
     border: 1px solid $lightergray;
     transition: border-color 125ms ease;
+    line-height: 1.5;
 
     &:hover {
       border-color: $darkergray;
