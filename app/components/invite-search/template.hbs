@@ -41,7 +41,9 @@
     class="invite-search__item"
     data-test-invite-result={{i}}
     {{action choseInvite result}}>
-    {{{result.address}}}
+    {{#each (slice-address result.address) as |line|}}
+      {{line}}<br />
+    {{/each}}
   </li>
   {{/each}}
 </ul>

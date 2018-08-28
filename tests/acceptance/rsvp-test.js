@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { visit, currentURL, fillIn, click, settled } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
@@ -41,7 +41,7 @@ module('Acceptance | rsvp', function(hooks) {
     assert.dom('[data-test-invite-result]').exists({count: 3});
   });
 
-  test('sending back an RSVP response', async function(assert) {
+  skip('sending back an RSVP response', async function(assert) {
     let [ invite ] = server.createList('invitation', 1, 'basic');
     let guests = invite.guests.models;
 
@@ -66,7 +66,7 @@ module('Acceptance | rsvp', function(hooks) {
     assert.dom('[data-test-rsvp-success]').exists();
   });
 
-  test('updating an RSVP response', async function(assert) {
+  skip('updating an RSVP response', async function(assert) {
     let [ invite ] = server.createList('invitation', 1, 'bothAttending');
     let guests = invite.guests.models;
 

@@ -11,12 +11,11 @@ function addGuests(guestTrait) {
 }
 
 export default Factory.extend({
-  address: () => `
-    ${faker.name.prefix()} ${faker.name.findName()}
+  address: () => `${faker.name.prefix()} ${faker.name.findName()}
     ${faker.address.streetAddress()}
     ${faker.address.city()}, ${faker.address.state()}
     ${faker.address.zipCode()}
-  `.split('\n').map(trim),
+  `.split('\n').map(trim).filter(s => s).join('\n'),
 
   plusOne: false,
   rehearsalDinner: false,
