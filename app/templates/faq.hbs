@@ -1,0 +1,20 @@
+{{set-body-class "faq"}}
+
+<main class="faq-body">
+  <h1 class="faq-header">Answer Some Questions Why Not</h1>
+
+  <section class="faq-block">
+    {{#each model as |faq|}}
+      <div class="faq-item">
+        <h2 class="faq-question">{{faq.question}}</h2>
+        <p class="faq-answer">{{faq.answer}}</p>
+      </div>
+    {{/each}}
+  </section>
+
+  <section class="faq-block">
+    <p class="faq-closing">
+      We're so excited to celebrate with you! If you've got more questions that aren't addressed here, please feel free to <a href="mailto:esnerwhitton@gmail.com?subject=11.10.18%20%3C3" target="_blank">contact us</a>!
+    </p>
+  </section>
+</main>
