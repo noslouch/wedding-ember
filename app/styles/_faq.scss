@@ -1,0 +1,41 @@
+@import "mixins/vars";
+@import "mixins/type";
+
+.faq-header {
+  @include hero-headline-bare;
+}
+
+.faq-body {
+  @include no-hero-body;
+}
+
+.faq-block {
+  @include body-headings;
+}
+
+.faq-item {
+  margin: 0 auto 32px;
+  max-width: 650px;
+
+  &:last-child {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 24px;
+  }
+}
+
+.faq-question {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.faq-answer {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.faq-closing {
+  line-height: 1.75;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 650px;
+}
