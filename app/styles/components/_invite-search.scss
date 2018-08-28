@@ -31,9 +31,11 @@
   }
 
   &__results {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     list-style: none;
+
+    max-width: 600px;
   }
 
   &__item {
@@ -42,6 +44,12 @@
     border: 1px solid $lightergray;
     transition: border-color 125ms ease;
     line-height: 1.5;
+
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &:hover {
       border-color: $darkergray;
