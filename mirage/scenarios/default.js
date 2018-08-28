@@ -5,6 +5,7 @@ export default function(server) {
     This data will not be loaded in your tests.
   */
 
+  server.create('invitation', 'solo', {id: 'solo'});
   server.create('invitation', 'basic', {id: 'basic'});
   server.create('invitation', 'bothAttending', {id: 'attending'});
   server.create('invitation', 'bothBrunch', {id: 'brunch'});

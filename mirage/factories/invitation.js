@@ -21,6 +21,11 @@ export default Factory.extend({
   rehearsalDinner: false,
   musicPref: '',
 
+  solo: trait({
+    afterCreate(invitation, server) {
+      server.create('guest', 1, {invitation});
+    }
+  }),
   basic: addGuests(),
 
   bothAttending:    addGuests('attending'),
