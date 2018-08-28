@@ -45,6 +45,7 @@
   .rsvp &:not(.is-open),
   .people &:not(.is-open),
   .registry &:not(.is-open),
+  .faq &:not(.is-open),
   &.solid-background:not(.is-open) {
     background-color: white;
     box-shadow: 0 0 10px 1px rgba(155, 155, 155, 0.5);
@@ -89,6 +90,7 @@
   .rsvp &,
   .registry &,
   .people &,
+  .faq &,
   .solid-background &,
   .show-gradient & {
     color: $darkergray;
@@ -184,6 +186,7 @@
 .rsvp,
 .registry,
 .people,
+.faq,
 .nav-links.solid-background,
 .nav-links.show-gradient {
   .nav-link {
