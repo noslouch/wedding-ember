@@ -31,7 +31,7 @@
 @mixin hero-headline-bare {
   @include hero-headline;
   color: $darkergray;
-  margin-bottom: 75px;
+  margin-bottom: 45px;
 }
 
 @mixin body-headings {
