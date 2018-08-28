@@ -17,6 +17,9 @@ const ROUTES = [
     route: 'where-to-stay',
     label: 'Where to Stay'
   }, {
+    route: 'faq',
+    label: 'FAQ'
+  }, {
     route: 'people',
     label: 'People'
   }, {
