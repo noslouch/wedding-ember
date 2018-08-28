@@ -1,13 +1,14 @@
 {{set-body-class "faq"}}
 
 <main class="faq-body">
-  <h1 class="faq-header">Answer Some Questions Why Not</h1>
+  <h1 class="faq-header">All Your Questions Answered</h1>
+  <h3 class="faq-sub">(as long as they're on this list)</h3>
 
   <section class="faq-block">
     {{#each model as |faq|}}
       <div class="faq-item">
         <h2 class="faq-question">{{faq.question}}</h2>
-        <p class="faq-answer">{{faq.answer}}</p>
+        <p class="faq-answer">{{{faq.answer}}}</p>
       </div>
     {{/each}}
   </section>

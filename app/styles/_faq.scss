@@ -3,6 +3,16 @@
 
 .faq-header {
   @include hero-headline-bare;
+  margin-bottom: 14px;
+}
+
+.faq-sub {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 45px;
+  font-weight: 300;
+  font-style: oblique;
 }
 
 .faq-body {
@@ -14,7 +24,7 @@
 }
 
 .faq-item {
-  margin: 0 auto 32px;
+  margin: 0 auto 36px;
   max-width: 650px;
 
   &:last-child {
@@ -25,7 +35,7 @@
 
 .faq-question {
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .faq-answer {

@@ -14,6 +14,7 @@
 
   &__label {
     line-height: 1.5;
+    font-size: 18px;
   }
 
   &__button {
@@ -62,12 +63,13 @@
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 20px;
+  border-color: $darkergray;
   border-width: 0 0 1px 0;
   border-radius: 0;
 
   &::placeholder {
     font-size: 14px;
     font-style: oblique;
-    color: rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.4);
   }
 }
