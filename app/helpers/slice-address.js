@@ -1,11 +1,12 @@
 import { helper } from '@ember/component/helper';
 
 export function sliceAddress([ address = '']/*, hash*/) {
-  let [name, aptOrStreet, streetOrCity] = address.split('\n');
-  if (/,/.test(aptOrStreet)) {
-    return [name, aptOrStreet];
+  let [name, , aptOrCity, cityOrZip] = address.split('\n').map(s => s.trim());
+  if (/,/.test(aptOrCity)) {
+    // this is probbly a street
+    return [name, aptOrCity];
   } else {
-    return [name, streetOrCity];
+    return [name, cityOrZip];
   }
 }
 
