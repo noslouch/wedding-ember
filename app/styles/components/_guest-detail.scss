@@ -170,12 +170,15 @@
   }
 
   &__input {
+    appearance: none;
     font-family: 'Open Sans', sans-serif;
     display: block;
     width: 100%;
     border: 1px solid $lightergray;
+    border-radius: 0;
     padding: 6px;
     line-height: 1;
+    font-size: 14px;
 
     transition: border-color 125ms ease;
 
@@ -185,7 +188,6 @@
     }
 
     &::placeholder {
-      font-size: 14px;
       font-style: oblique;
       color: $gray;
     }

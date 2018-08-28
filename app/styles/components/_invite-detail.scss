@@ -37,10 +37,12 @@
     }
 
     &-input {
+      appearance: none;
       resize: vertical;
       padding: 8px;
       width: 100%;
       border: 1px solid $darkergray;
+      border-radius: 0;
 
       &::placeholder {
         font-style: oblique;
