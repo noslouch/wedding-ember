@@ -47,5 +47,7 @@ export default Component.extend({
     if (this.sendResponse) {
       this.sendResponse(this.invitation);
     }
-  }
+  },
+
+  newSearch() {}
 });
