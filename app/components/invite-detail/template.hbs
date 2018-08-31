@@ -29,11 +29,27 @@
 
   {{textarea
     id="song-request"
-    rows="6"
+    rows="3"
     cols="80"
     class="invite-detail__music-input"
     value=invitation.musicPref
     placeholder="e.g. YMCA by The Village People"}}
+</div>
+
+<div class="invite-detail__note">
+  <label
+    class="invite-detail__note-label"
+    for="note">
+    Anything else we should know?
+  </label>
+
+  {{textarea
+    id="note"
+    rows="3"
+    cols="80"
+    class="invite-detail__note-input"
+    value=invitation.note
+    placeholder="e.g. Can't wait!"}}
 </div>
 
 <div class="invite-detail__footer">
