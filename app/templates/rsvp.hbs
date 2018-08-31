@@ -2,8 +2,6 @@
 
 <main class="rsvp-body">
   {{#if (or showRSVP rsvp)}}
-  <h1 class="rsvp-header">Come as You Are<br />(But Nicer)</h1>
-
   <section class="rsvp-block">
     {{#if success}}
       {{invite-success invitation=invitation reset=(action reset)}}

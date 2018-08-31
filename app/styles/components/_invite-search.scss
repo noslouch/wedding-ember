@@ -2,6 +2,19 @@
 
 .invite-search {
 
+  max-width: 800px;
+  padding: 0 15px;
+
+  &__header {
+    margin-bottom: 32px;
+    font-size: 32px;
+
+    @media only screen and (min-width: 800px) {
+      margin-bottom: 64px;
+      font-size: 48px;
+    }
+  }
+
   &__form {
     display: flex;
     flex-wrap: wrap;
