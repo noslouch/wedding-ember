@@ -1,8 +1,35 @@
-<h3 class="invite-success__header">Thanks for responding!</h3>
+<h1 class="invite-success__header">Thanks for Replying SVP!</h1>
+
+<div class="invite-success__body">
+  {{#if attending}}
+    <p class="invite-success__sub">We'll see you on November 10!</p>
+
+    <div class="invite-success__responses">
+    {{#each attending as |guest|}}
+      <div class="invite-success__response">
+        <h3>{{guest.firstName}} {{guest.lastName}} said <span class="invite-yes">Yes</span></h3>
+      </div>
+    {{/each}}
+    </div>
+  {{/if}}
+
+
+  {{#if notAttending}}
+    <p class="invite-success__sub">Sorry to miss you.</p>
+
+    <div class="invite-success__responses">
+    {{#each notAttending as |guest|}}
+      <div class="invite-success__response">
+        <h3>{{guest.firstName}} {{guest.lastName}} said <span class="invite-no">No</span></h3>
+      </div>
+    {{/each}}
+    </div>
+  {{/if}}
+</div>
 
 <button
   class="invite-success__reset"
   data-test-success-reset
   {{action reset}}>
-  X
+  Go Back
 </button>

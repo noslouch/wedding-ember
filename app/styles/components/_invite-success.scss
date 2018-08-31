@@ -1,0 +1,29 @@
+@import '../mixins/vars';
+@import '../mixins/forms';
+
+.invite-success__header {
+  margin-bottom: 24px;
+}
+
+.invite-success__sub {
+  font-size: 24px;
+  font-style: oblique;
+
+  margin-bottom: 24px;
+}
+
+.invite-success__response {
+  margin-bottom: 18px;
+}
+
+.invite-yes {
+  color: $green;
+}
+
+.invite-no {
+  color: $red;
+}
+
+.invite-success__reset {
+  @include block-btn;
+}
