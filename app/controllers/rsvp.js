@@ -2,9 +2,6 @@ import Controller from '@ember/controller';
 import config from '../config/environment';
 
 export default Controller.extend({
-  queryParams: ['rsvp'],
-  rsvp: null,
-  
   showRSVP: config.RSVP,
 
   sendResponse(invitation) {
