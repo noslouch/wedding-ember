@@ -5,6 +5,12 @@
 
   &__header{
     margin-bottom: 25px;
+    font-size: 28px;
+
+    @media only screen and (min-width: 800px) {
+      margin-bottom: 64px;
+      font-size: 48px;
+    }
   }
 
   &__guests {
@@ -27,6 +33,7 @@
     }
   }
 
+  &__note,
   &__music {
     text-align: left;
     margin-bottom: 35px;
@@ -53,8 +60,13 @@
 
   }
 
+  &__footer {
+    margin-bottom: 24px;
+  }
+
   &__submit {
     @include block-btn;
+    margin-bottom: 24px;
 
 
     &[disabled] {
@@ -71,5 +83,19 @@
     .fa-spin {
       margin-right: 5px;
     }
+  }
+
+  hr {
+    max-width: 80%;
+    margin-top: 0;
+    margin-bottom: 24px;
+
+    border: none;
+    border-bottom: 1px solid;
+  }
+
+  &__reset {
+    @include block-btn;
+
   }
 }
