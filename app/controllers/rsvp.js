@@ -11,8 +11,9 @@ export default Controller.extend({
 
   reset() {
     this.setProperties({
-      success: false,
+      success: null,
       invitation: null
-    })
+    });
+    this.transitionToRoute('rsvp');
   }
 });

@@ -6,7 +6,7 @@
     {{#if success}}
       {{invite-success invitation=invitation reset=(action reset)}}
     {{else if invitation}}
-      {{invite-detail invitation=invitation sendResponse=(action sendResponse)}}
+      {{invite-detail invitation=invitation sendResponse=(action sendResponse) newSearch=(action (mut invitation) null)}}
     {{else}}
       {{invite-search onSelect=(action (mut invitation))}}
     {{/if}}
