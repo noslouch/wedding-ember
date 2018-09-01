@@ -38,11 +38,8 @@ export default Component.extend({
   }),
 
   send() {
-    if (this.plusOne && (!this.plusOne.firstName || !this.plusOne.firstName)) {
-      this.set('needPlusOne', true);
-      return;
-    } else {
-      this.set('needPlusOne', false);
+    if (this.plusOne && !this.plusOne.firstName && !this.plusOne.lastName) {
+      this.plusOne.set('invitation', null);
     }
     if (this.sendResponse) {
       this.sendResponse(this.invitation);
