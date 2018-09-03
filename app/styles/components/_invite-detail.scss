@@ -62,6 +62,12 @@
 
   &__footer {
     margin-bottom: 24px;
+
+    &-note {
+      display: block;
+      margin-bottom: 24px;
+      font-style: oblique;
+    }
   }
 
   &__submit {
