@@ -2,6 +2,7 @@ import DS from 'ember-data';
 import config from '../config/environment';
 import AdapterFetch from 'ember-fetch/mixins/adapter-fetch';
 import fetch from 'fetch';
+import { Promise } from 'rsvp';
 
 export default DS.RESTAdapter.extend(AdapterFetch, {
   host: config.API,
