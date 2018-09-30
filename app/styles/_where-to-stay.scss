@@ -5,11 +5,11 @@
   @include image-container;
   background-image: url('/assets/images/where-to-stay.jpg');
   background-position: center;
-  
+
   @media only screen and (min-width: 600px) {
     background-position: top right;
   }
-  
+
   &:before {
     background-color: rgba(0, 0, 0, 0.25);
   }
@@ -26,11 +26,40 @@
 .where-body {
   @include l-constrained;
   text-align: center;
-  
+
   @include body-headings;
-  
+
+  > h2 {
+    margin-top: 0;
+    padding-top: 90px;
+
+    @media only screen and (min-width: 669px) {
+      padding-top: 130px;
+    }
+
+    @media only screen and (min-width: 732px) {
+      padding-top: 90px;
+    }
+  }
+
   > iframe {
     margin-bottom: 35px;
+  }
+}
+
+.where-intro {
+  line-height: 1.4;
+  font-size: 18px;
+  font-style: oblique;
+
+  a {
+    color: $blue;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -52,9 +81,9 @@
   max-width: 200px;
   color: $darkergray;
   text-transform: uppercase;
-  
+
   transition: background-color 125ms ease, color 125ms ease;
-  
+
   &:hover {
     background-color: #eaeaea;
   }
@@ -65,16 +94,24 @@
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 35px;
-  
+
   > a {
     color: $darkergray;
     text-decoration: none;
     border-bottom: 1px solid $darkergray;
-    
+
     transition: border-bottom-color 125ms ease;
-    
+
     &:hover {
       border-bottom-color: #ccc;
     }
   }
+}
+
+.call-note {
+  display: block;
+  margin-top: 14px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
