@@ -12,6 +12,8 @@ export default Component.extend({
     let { firstName, lastName, isPlusOne } = this.guest;
     if ((!firstName && !lastName) && isPlusOne && this.needPlusOne) {
       return true;
+    } else if (isPlusOne && (firstName && !lastName)) {
+      return true;
     } else {
       return false;
     }
