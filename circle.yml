@@ -24,10 +24,6 @@ jobs:
           paths:
             - node_modules
 
-      - run:
-          name: tests
-          command: npx ember test
-
       - setup_remote_docker
       - run:
           name: login to docker hub
