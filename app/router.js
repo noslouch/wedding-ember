@@ -6,18 +6,4 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
-  this.route('schedule');
-  this.route('where-to-stay');
-  this.route('people');
-  this.route('registry');
-  this.route('rsvp', function() {
-    if (config.environment === 'development') {
-      this.route('invite', {path: ':id'});
-    }
-  });
-  this.route('directions');
-  this.route('faq');
-});
-
 export default Router;

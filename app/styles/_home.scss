@@ -3,6 +3,8 @@
 
 .home-hero-image {
   @include image-container;
+
+  padding: 25px 15px;
   margin-bottom: 0;
   background-image: url('/assets/images/tunnel.gif');
   background-position: center;
@@ -57,13 +59,14 @@
 
 .home-message {
   position: relative;
-  padding-top: 50px;
   text-align: center;
 
   color: white;
   font-weight: 300;
   font-family: 'Open Sans';
-  font-size: 55px;
+  font-size: 25px;
+
+  margin: 0;
 }
 
 .home-body {
